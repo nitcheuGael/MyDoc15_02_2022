@@ -1,0 +1,195 @@
+<div class="row ">
+    <!-- Column -->
+    <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body bg-secondary text-white">
+                <div class="row">
+                    <div class="col-12 ">
+
+                        <h4 class="font-medium font-16 text-uppercase">Demande en Attente:
+                            <strong>{{demandeList.length}}</strong>
+                        </h4>
+                        <div class="d-flex align-items-center mb-1">
+                            <button class="btn btn-primary" (click)="fndemande()">Afficher</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- column -->
+    <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body bg-secondary text-white">
+                <div class="row">
+                    <div class="col-12">
+
+                        <h4 class="font-medium font-16 text-uppercase">Demande encours:
+                            <strong>{{demandeList1.length}}</strong>
+                        </h4>
+                        <div class="d-flex align-items-center mb-1">
+
+                            <button class="btn btn-primary" (click)="fdemandeEC()">Afficher</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body bg-secondary text-white">
+                <div class="row">
+                    <div class="col-12">
+
+                        <h4 class="font-medium font-16 text-uppercase">Demande Acheve</h4>
+                        <div class="d-flex align-items-center mb-1">
+
+                            <button class="btn btn-primary" (click)="fdemandeA()">Afficher</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body bg-secondary text-white">
+                <div class="row">
+                    <div class="col-12">
+
+                        <h4 class="font-medium font-16 text-uppercase">Demande Refuser</h4>
+                        <div class="d-flex align-items-center mb-1">
+
+                            <button class="btn btn-primary" (click)="fdemandeR()">Afficher</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column demande en attente -->
+
+    <div [parentData]="liste" *ngIf="nDemande">
+        <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions"
+            [dtTrigger]="dtTrigger">
+            <thead>
+                <tr class="bg-success">
+                    <th>ID</th>
+                    <th>NOM</th>
+                    <th>PRENOM</th>
+                    <th>EMAIL</th>
+                    <th>TYPE DOCUMENT</th>
+                    <th>TEL</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let datas of demandeList' (click)="RowSelected(datas);">
+                    <td>{{datas.id}}</td>
+                    <td> {{datas.nom}} </td>
+                    <td> {{datas.prenom}} </td>
+                    <td> {{datas.email}} </td>
+                    <td> {{datas.typeDemande}} </td>
+                    <td> {{datas.tel}} </td>
+
+                    <td>
+                        <button type="button" class="btn btn-primary"
+                            (click)="afficheDemandeSelectioner()">Afficher</button>
+                        <button type="button" color="primary" class="btn btn-success"
+                            (click)="soumettreDemande()">Soumettre</button>
+                        <button type="button" class="btn btn-warning" (click)=" ModifierDemande() ">Modifier</button>
+                        <button type="button" class="btn btn-danger" (click)="suprimerDemande()">Supprimer</button>
+
+
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <!-- Column demande encour-->
+
+    <div *ngIf="demandeEC">
+
+        <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions"
+            [dtTrigger]="dtTrigger">
+            <thead>
+                <tr class="bg-success">
+                    <th>ID</th>
+                    <th>NOM</th>
+                    <th>PRENOM</th>
+                    <th>EMAIL</th>
+                    <th>TYPE DOCUMENT</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let datas of demandeList1'>
+                    <td>{{datas.id}}</td>
+                    <td> {{datas.nom}} </td>
+                    <td> {{datas.prenom}} </td>
+                    <td> {{datas.email}} </td>
+                    <td> {{datas.typeDemande}} </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+    <!-- Co lumn demande Acepter-->
+
+    <div *ngIf="demandeA">
+        <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions"
+            [dtTrigger]="dtTrigger">
+            <thead>
+                <tr class="bg-success">
+                    <th>ID</th>
+                    <th>NOM</th>
+                    <th>PRENOM</th>
+                    <th>EMAIL</th>
+                    <th>TYPE DOCUMENT</th>
+
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+
+    <!-- Column demande refuser-->
+    <div *ngIf="demandeR">
+        <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions"
+            [dtTrigger]="dtTrigger">
+
+            <thead>
+                <tr class="bg-success">
+                    <th>ID</th>
+                    <th>NOM</th>
+                    <th>PRENOM</th>
+                    <th>EMAIL</th>
+                    <th>TYPE DOCUMENT</th>
+
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+
+
+</div>

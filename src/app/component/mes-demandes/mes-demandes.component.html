@@ -1,0 +1,31 @@
+<!-- Co lumn demande Acepter-->
+
+<div>
+    <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions"
+        [dtTrigger]="dtTrigger">
+        <thead>
+            <tr class="bg-success">
+                <th>ID</th>
+                <th>NOM</th>
+                <th>PRENOM</th>
+                <th>EMAIL</th>
+                <th>TYPE DOCUMENT</th>
+                <th>Statut</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let datas of demandeList' (click)="RowSelected(datas);">
+                <td> {{datas.id}} </td>
+                <td> {{datas.nom}} </td>
+                <td> {{datas.prenom}} </td>
+                <td> {{datas.email}} </td>
+                <td> {{datas.typeDemande}} </td>
+                <td> {{datas.statut}} </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Column demande refuser-->

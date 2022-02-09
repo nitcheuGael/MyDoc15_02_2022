@@ -1,0 +1,1342 @@
+<header id="header" class="fixed-top skin5">
+    <div class="container d-flex align-items-center">
+
+        <h4 class="logo me-auto"> <img src="assets/images/logoMydoc1.png" class="dark-logo" alt="homepage" />
+        </h4>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar ">
+            <ul>
+                <li *ngIf="testbutonD"><button class="getstarted scrollto skin5" [routerLink]="['/','dashboard']"> <b>
+                            Revenir au Dashboard</b>
+                    </button></li>
+                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                <li class="dropdown nav-link scrollto"><a href="#support"><span>Support</span> <i
+                            class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="#FAQ">FAQ</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#apropos"><span>A propos</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#organisation">Condition générale d'utilisation</a></li>
+                        <li><a href="#">Historique</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#"><span>Blog</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="#contact">Experience</a></li>
+                        <li><a href="#">Article recents</a></li>
+                        <li><a href="#">Categories</a></li>
+                    </ul>
+                </li>
+                <li *ngIf="testbutonC"><button class="getstarted scrollto skin5" [routerLink]="['/','loading']"> <b> Se
+                            Connecter</b>
+                    </button></li>
+                <li *ngIf="testbutonD"><button (click)="logOut()" class="getstarted scrollto skin5"> <b> Se
+                            Deconnecter</b>
+                    </button></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+
+
+
+
+
+
+
+
+    </div>
+</header><!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+                data-aos="fade-up" data-aos-delay="200">
+                <h1>La solution ideale pour vous</h1>
+                <h2>Entrez en possession de vos documents administratifs a distance</h2>
+                <div class="d-flex justify-content-center justify-content-lg-start">
+                    <button *ngIf="testbutonC" class="btn-get-started scrollto" [routerLink]="['/','loading']">
+                        <b> Se Connecter</b>
+                    </button>
+                    <button *ngIf="testbutonD" (click)="logOut()" class="btn-get-started scrollto">
+                        <b> Se Deconnecter</b>
+                    </button>
+
+                    <a href="https://youtu.be/-XmEg4B4DSY" class="glightbox btn-watch-video"><i
+                            class="bi bi-play-circle"></i><span>Voire la Video</span></a>
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                <img src="assets/images/gallery/ITPubliNew-1.png" class="img-fluid animated" alt="">
+            </div>
+        </div>
+    </div>
+
+</section><!-- End Hero -->
+
+<main id="main">
+
+    <!-- ======= Cliens Section ======= -->
+    <section id="cliens" class="cliens section-bg">
+        <div class="container">
+
+            <div class="row" data-aos="zoom-in">
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/images/logoMydoc1.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/images/logoMydoc1.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/images/logoMydoc1.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/images/logoMydoc1.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/images/logoMydoc1.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/images/logoMydoc1.png" class="img-fluid" alt="">
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Cliens Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>A PROPOS : </h2>
+            </div>
+
+            <div class="row content" id="apropos">
+                <div class="col-lg-6">
+                    <p>
+                        MyDoc.cm « le guichet électronique des documents administratifs et officiels au Cameroun »
+                        est une source officielle pour commander
+                        électroniquement
+                        les documents administratifs avec un
+                        service de commande en ligne sécurisé, disponible sur toute l’étendue du territoire Camerounais.
+                    </p>
+                    <ul>
+                        <li><i class="ri-check-double-line"></i>
+                            <h2><strong>Simple</strong></h2>
+                        </li>
+                        <li><i class="ri-check-double-line"></i>
+                            <h2><strong>Rapide</strong></h2>
+                        <li><i class="ri-check-double-line"></i>
+                            <h2><strong>Sécurisé</strong></h2>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0">
+                    <p>
+                        C’est une interface web pour commander et assurer le suivi de la livraison
+                        des documents administratifs à partir du Cameroun pour les Camerounais y compris la Diaspora !
+                    </p>
+                    <a href="#organisation" class="btn-learn-more">Condition générale d'utilisation</a>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Us Section -->
+
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Notre Mission : </h2>
+            </div>
+
+            <div class="row content">
+                <div class="col-lg-12">
+                    <p>
+                        MyDoc.cm a pour mission de mettre à la disposition des Camerounais leurs
+                        documents administratifs et officiels de manière Simple, Rapide et Sécurisé.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="FAQ" class="why-us section-bg">
+        <div class="container-fluid" data-aos="fade-up">
+
+            <div class="row">
+
+                <div
+                    class="col-lg-12 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+                    <div class="section-title">
+                        <h2> F.A.Q :</h2>
+                    </div>
+
+                    <div class="content">
+
+                        <h4> <strong>Questions / Réponses</strong></h4>
+
+                    </div>
+
+                    <div class="accordion-list">
+                        <ul>
+                            <li>
+                                <a data-bs-toggle="collapse" class="collapse"
+                                    data-bs-target="#accordion-list-1"><span>01</span> A quoi sert ce service en ligne ?
+                                    <i class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Le service de commande en ligne des documents administratifs et officiels permet
+                                        de commander par internet la certification,
+                                        la légalisation, le duplicata, l’extrait,
+                                        le retrait de documents et de les recevoir à l’adresse de son choix.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2"
+                                    class="collapsed"><span>02</span> Qui peut utiliser ce service ? <i
+                                        class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Le service est ouvert aux personnes physiques majeures
+                                        de nationalité Camerounaise pouvant fournir une procuration.
+                                        Le Service sera progressivement déployé pour
+                                        couvrir la totalité des documents administratifs sur le territoire national.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3"
+                                    class="collapsed"><span>03</span> J’habite à l’étranger. Est-ce que je peux utiliser
+                                    ce service ? <i class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Oui, il est possible de passer sa commande depuis l’étranger
+                                        et de recevoir les documents commandés à l’étranger,
+                                        sous réserve que vous ayez légalement designer un proxy
+                                        local pour agir en votre nom et pour votre compte.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4"
+                                    class="collapsed"><span>04</span> Je suis né à l’étranger. Est-ce que je peux
+                                    utiliser ce service ? <i class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Ce service n’est pas encore ouvert aux Camerounais nés à l’étranger. Il le sera
+                                        prochainement.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-5"
+                                    class="collapsed"><span>05</span> Combien de temps prendra l’exécution d’une
+                                    commande ? <i class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-5" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        La durée de traitement d’une commande est composée de la durée de production des
+                                        documents demandés
+                                        et la durée d’acheminement du courrier auprès du bénéficiaire du service. A
+                                        titre indicatif, la durée de
+                                        traitement au niveau des bureaux d’état civil est de 24h, et la durée
+                                        d’acheminement a
+                                        travers tout le pays est de 5 jours au maximum.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-6"
+                                    class="collapsed"><span>06</span> Est-ce que le service est payant ? <i
+                                        class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-6" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Oui, le montant payé sert à couvrir essentiellement les frais divers lies aux
+                                        débours et de logistique.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-7"
+                                    class="collapsed"><span>07</span> Quels sont les moyens de paiement acceptés ? <i
+                                        class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-7" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Il est possible de payer par carte bancaire nationale ou internationale, Mobile,
+                                        PayPal. Prochainement il sera possible de payer par SMS.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-8"
+                                    class="collapsed"><span>08</span> Est-ce que je peux modifier ou annuler ma commande
+                                    ? <i class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-8" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Non, après avoir réglé votre commande, il n’est plus possible de la modifier ou
+                                        de l’annuler.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-9"
+                                    class="collapsed"><span>09</span> Est-ce que je peux suivre l’état d’avancement de
+                                    ma commande ? <i class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-9" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Oui, il est possible à travers l’espace de suivi des commandes, de connaître
+                                        l’état d’avancement de votre commande.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-10"
+                                    class="collapsed"><span>10</span> Qui peut passer les commandes de documents
+                                    administratifs en ligne ? <i class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-10" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Les documents ne pourront être donnés qu’aux personnes concernées qui ont la
+                                        majorité,
+                                        leurs parents directs (liens de sang ou de mariage) ou tuteur légal ou
+                                        mandataire pouvant produire
+                                        la preuve au retrait
+                                        conformément aux articles XX et XX des lois N° XX-XXX et N° XX-XXX relatives à
+                                        l’Etat Civil.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-11"
+                                    class="collapsed"><span>11</span> Quel est le délai moyen de traitement ?
+                                    <i class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-11" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Compte tenu des délais de traitement et d’acheminement logistique, si vous
+                                        indiquez avec
+                                        précision la date (jour-mois-année) de l’acte civil ou les références des autres
+                                        documents
+                                        vous les recevrez au plus tard dans 15 jours. Si votre demande n’est pas précise
+                                        des recherches
+                                        sont nécessaires et le traitement de votre demande peut mettre plus de
+                                        temps. Notre service client vous notifiera par email/SMS /WhatsApp si
+                                        nécessaire. </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-12"
+                                    class="collapsed"><span>12</span> Peut-on recevoir les documents officiels par
+                                    courrier électronique ? <i class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-12" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Non les documents administratifs vous seront acheminés uniquement par lettre
+                                        recommandée.
+                                        Cependant, en ce qui concerne les retraits de diplômes,
+                                        CNI, Passport, une copie vous sera envoyée par email/SMS dès le retrait dudit
+                                        document et avant expédition physique.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-13"
+                                    class="collapsed"><span>13</span> Peut-on recevoir les documents à domicile ? <i
+                                        class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-13" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Oui cela est possible en choisissant l’option courrier express ou porte à porte
+                                        à la commande.
+                                        Ce service vous sera facturé en option à un
+                                        coût supplémentaire qui vous sera précisé en fonction du lieu de livraison.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-14"
+                                    class="collapsed"><span>14</span> Comment être informé de l’état d’avancement et de
+                                    la livraison de mes documents ? <i class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="accordion-list-14" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Puisque vous avez indiqué votre e-mail / SMS, vous serez informés de l’évolution
+                                        de votre demande
+                                        -1 premier email/SMS de réception de votre demande
+                                        -1 second email/SMS confirmant la fin du traitement de votre demande par
+                                        Hello@mydoc.cm . Attention avant validation vérifier la bonne orthographe de
+                                        votre adresse email. Des erreurs de saisie peuvent entraîner l’envoi à tort
+                                        d’informations dans la boîte email d’un tiers. AFRICA VENTURE GROUP ne saurait
+                                        être tenue responsable d’une transmission erronée.
+                                        -Par ailleurs, en accédant au site vous il faut s'inscrire pour effectuer toute
+                                        sorte d'opérations. Le login et mot de passe créés vous permettrons à chaque
+                                        fois
+                                        que vous êtes sur le site à suivre l'état de votre commande au niveau du dernier
+                                        menu déroulant "Se connecter" ou "Connecté".
+
+                                    </p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
+                    style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">
+                    &nbsp;</div>
+            </div>
+
+        </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+                    <img src="assets/img/skills.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+                    <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>
+                    <p class="fst-italic">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore
+                        magna aliqua.
+                    </p>
+
+                    <div class="skills-content">
+
+                        <div class="progress">
+                            <span class="skill">HTML <i class="val">100%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <span class="skill">CSS <i class="val">90%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <span class="skill">JavaScript <i class="val">75%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <span class="skill">Photoshop <i class="val">55%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Services</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                        <h4><a href="">Lorem Ipsum</a></h4>
+                        <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+                    data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-file"></i></div>
+                        <h4><a href="">Sed ut perspici</a></h4>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
+                    data-aos-delay="300">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-tachometer"></i></div>
+                        <h4><a href="">Magni Dolores</a></h4>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
+                    data-aos-delay="400">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-layer"></i></div>
+                        <h4><a href="">Nemo Enim</a></h4>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+        <div class="container" data-aos="zoom-in">
+
+            <div class="row">
+                <div class="col-lg-9 text-center text-lg-start">
+                    <h3>Call To Action</h3>
+                    <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                        mollit anim id est laborum.</p>
+                </div>
+                <div class="col-lg-3 cta-btn-container text-center">
+                    <a class="cta-btn align-middle" href="#">Call To Action</a>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Portfolio</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+            </div>
+
+            <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-app">App</li>
+                <li data-filter=".filter-card">Card</li>
+                <li data-filter=".filter-web">Web</li>
+            </ul>
+
+            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>App 1</h4>
+                        <p>App</p>
+                        <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                class="bx bx-link"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Web 3</h4>
+                        <p>Web</p>
+                        <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                class="bx bx-link"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>App 2</h4>
+                        <p>App</p>
+                        <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                class="bx bx-link"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Card 2</h4>
+                        <p>Card</p>
+                        <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                class="bx bx-link"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Web 2</h4>
+                        <p>Web</p>
+                        <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                class="bx bx-link"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>App 3</h4>
+                        <p>App</p>
+                        <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                class="bx bx-link"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Card 1</h4>
+                        <p>Card</p>
+                        <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                class="bx bx-link"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Card 3</h4>
+                        <p>Card</p>
+                        <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                class="bx bx-link"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Web 3</h4>
+                        <p>Web</p>
+                        <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                class="bx bx-link"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="organisation" class="team section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Condition générale d'utilisation</h2>
+                <strong>
+                    <h3>Introduction</h3>
+                </strong>
+                <p>Bienvenue sur le site Internet www.mydoc.cm qui est édité par AFRICA VENTURE GROUP SARL, inscrite au
+                    Registre du Commerce et de Crédit Mobilier du Cameroun sous le n° xxxxxxxxxxxxxxxxxxxx, pour le
+                    compte de ce service virtuel MyDoc.cm
+                    Adresse de courrier électronique : infos@mydoc.cm
+                </p>
+                <a *ngIf="button1" href="#organisation" (click)="readMore()" class="btn-learn-more">
+                    <h4><strong>Read More</strong></h4>
+                </a>
+
+
+                <div *ngIf="afficheCon" class="accordion-list">
+
+                    <p>
+                        N° Contribuable : xxxxxxxxxxxxxxxxxxxxxxxx
+                        Coordonnées téléphoniques -(n° de téléphone pour les réclamations, des informations
+                        sur les livraisons en cours) : +237 690 802 254.
+                        L’utilisation du présent site ainsi que du réseau, des équipements et des logiciels
+                        associés de Mydoc.cm (le (s) « Service (s) ») atteste de votre (l’utilisateur final,
+                        « Vous » ou « Votre ») acceptation des présentes Conditions Générales d’Utilisation
+                        d’ AFRICA VENTURE GROUP SARL s'engage à vous fournir son Service en vous accordant
+                        une autorisation non transférable, non cessible, non exclusive pour utiliser le
+                        réseau approprié fourni par AFRICA VENTURE GROUP SARL dans le cadre dudit Service, à
+                        compter de l'acceptation de ces Conditions Générales d'Utilisation jusqu'à
+                        l'expiration de la période de Service convenue entre vous et AFRICA VENTURE GROUP
+                        SARL. L'accès au Service Mydoc.cm est fourni sous réserve des modalités et
+                        conditions énoncées ci-dessous.
+
+                    </p>
+                    <h3>Protection de la vie privée</h3>
+                    <p>
+                        AFRICA VENTURE GROUP SARL s’est engagé à travers Mydoc.cm à respecter Votre vie
+                        privée et la confidentialité de Vos données personnelles. La Politique de
+                        Confidentialité Mydoc.cm est incorporée aux présentes Conditions Générales
+                        d’Utilisation par référence. Elle s’applique à l’utilisation de Vos données
+                        personnelles, aux statistiques de trafic, ainsi qu’au contenu figurant dans
+                        Votre/Vos communication(s).
+                    </p>
+                    <h3>Service</h3>
+                    <p>
+                        Nous nous réservons le droit de changer, modifier, suspendre, limiter ou supprimer des éléments
+                        de nos Services, y compris tout contenu faisant l’objet d’une licence de tiers, sans préavis et
+                        sans que cela ne puisse engager l responsabilité. AFRICA VENTURE GROUP SARL se réserve également
+                        le droit de suspendre / résilier l'accès au Service en cas de manquement par l'Utilisateur à ses
+                        obligations ou à la demande de tiers et/ou de toute autorité compétente sans que notre
+                        responsabilité ne puisse être engagé ni donner lieu à une quelconque indemnisation ou
+                        réparation. Le Site Mydoc.cm peut contenir des liens vers des sites Internet tiers qui ne sont
+                        pas détenus et contrôlés par AFRICA VENTURE GROUP SARL. AFRICA VENTURE GROUP SARL n’a aucun
+                        contrôle et n’assume aucune responsabilité quant à l’adéquation, à l’exactitude ou la nature des
+                        contenus, aux politiques de confidentialité, à l’exactitude des informations et des mentions de
+                        propriété intellectuelle figurant sur ces dits sites internet ni quant à leur activité. Certains
+                        desdits liens Vous permettent d’utiliser des services et produits. Nous ne soumettons aucune
+                        déclaration ni garantie en relation avec lesdits services et produits, et la simple fourniture
+                        d’un accès auxdits services et produits ne pourra donner lieu à aucune responsabilité pour
+                        AFRICA VENTURE GROUP SARL. En conséquence, nous Vous encourageons à faire preuve de prudence
+                        lorsque Vous quittez le Site Mydoc.cm et à lire les modalités et la politique de confidentialité
+                        de chacun des autres sites Internet sur lesquels Vous vous rendez.
+                    </p>
+                    <h3>Vos Obligations</h3>
+                    <P>
+                        S'agissant de l'utilisation du Service, vous êtes informé que le réseau Internet est un réseau
+                        véhiculant des données susceptibles d’appartenir à des tiers, d'être protégées notamment par des
+                        droits de propriété intellectuelle ou d'enfreindre les dispositions légales en vigueur. Vous
+                        vous engagez en conséquence à ne pas utiliser les Services pour transmettre ou utiliser des
+                        données ou messages prohibés, illicites, illégaux, contraires aux bonnes mœurs ou à l'ordre
+                        public et/ou portant atteinte ou susceptibles de porter atteinte aux droits de tiers. De la même
+                        manière, vous vous interdisez d’avoir par l’intermédiaire des Services une activité frauduleuse,
+                        abusive ou illégale, telle que notamment l'encombrement volontaire ou involontaire des serveurs
+                        de messageries et/ou des destinataires de mails par du publipostage sauvage (spamming, bunk
+                        e-mail, junk e-mail ou mail bombing) ou de son réseau, ou l'envoi de messages attractifs
+                        générant nécessairement un nombre imposant de réponses (teasing ou trolling) pouvant ainsi
+                        perturber la disponibilité du Service. Vous vous interdisez enfin d’accéder au compte d’une
+                        autre personne, de collecter les données personnelles d’autres personnes à leur insu et sans
+                        leur consentement et Vous ne pouvez pas entraver autrement l’utilisation du Service par d’autres
+                        utilisateurs.
+
+
+                    </P>
+                    <h3>Accès au site Mydoc.cm</h3>
+                    <p>
+                        Vous pouvez aller sur le site librement, mais devez accéder à votre espace dédié pour passer les
+                        commandes et assurer leur suivi au moyen d’un nom d’utilisateur et d’un mot de passe que vous
+                        aurez créé. Vous êtes responsable (a) du maintien de la confidentialité du mot de passe ; et (b)
+                        de l’ensemble des activités conduites en vertu de Votre nom d’utilisateur et Votre mot de passe.
+                        Vous serez tenu responsable de tous/toutes pertes, dommages, coûts et dépenses direct(e)s
+                        subi(e)s par AFRICA VENTURE GROUP SARL. Découlant de la perte, l’utilisation abusive et/ou la
+                        divulgation de Votre nom d’utilisateur et Votre mot de passe. Vous devez informer le Service
+                        Clients Mydoc.cm. (ainsi qu’il est indiqué ci-dessous) sur-le-champ de toute infraction à la
+                        sécurité ou utilisation non autorisée de votre nom d’utilisateur et votre mot de passe ou en cas
+                        de perte de ces derniers. Veuillez toutefois noter que nous sommes dans l’impossibilité de Vous
+                        accorder un remboursement si Vous perdez Vos identifiants de connexion personnels. Il est
+                        interdit de partager et de divulguer Votre mot de passe et Votre nom d’utilisateur à tout(e)
+                        tiers, autre individu ou société, sauf autorisation expresse par écrit de AFRICA VENTURE GROUP
+                        SARL. Vous ne pouvez pas accéder au Service au moyen de plusieurs dispositifs. Il est interdit
+                        d’héberger un serveur Web ou tout autre serveur en utilisant le Service. AFRICA VENTURE GROUP
+                        SARL propose le Service pour la commande documents administratifs et officiels par les services
+                        externes de logistique basés au Cameroun. AFRICA VENTURE GROUP SARL peut suspendre ou
+                        interrompre le Service à tout moment sans préavis pour tout motif raisonnable. Les raisons
+                        peuvent être les suivantes sans toutefois s’y limiter, a) attaque virale du site ; et/ou b)
+                        communications et/ou sollicitations abusives et/ou menaçantes ; et/ou c) Vous utilisez le
+                        Service pour conduire des activités criminelles et/ou illégales (de plus amples informations
+                        sont exposées dans la politique d’usage loyal qui est incorporée par référence aux présentes
+                        Conditions Générales d’Utilisation). Vous ne pouvez pas annuler les Services une fois que vous
+                        avez commencé à les utiliser. Vous ne pouvez prétendre à aucun dédommagement si Vous ne pouvez
+                        pas utiliser les Services pour les raisons suivantes (a) le lieu depuis lequel Vous essayez
+                        d’accéder aux Services subit une coupure de courant généralisée ; (b) ledit lieu fait l’objet
+                        d’opérations de maintenance ; ou (c) les Services ont été suspendus en raison d’une défaillance
+                        indépendante de la volonté de AFRICA VENTURE GROUP SARL. Toutefois, si les Services ne sont pas
+                        disponibles pour des motifs autres que ceux évoqués ci avant pendant les heures d’ouverture
+                        habituelles en raison de toute défaillance d’AFRICA VENTURE GROUP SARL, veuillez contacter le
+                        Service Clients pour obtenir un éventuel remboursement ou crédit d’heures. Vous ne pouvez pas
+                        revendre à un tiers le présent Service ni toute information fournie par des tiers en relation
+                        avec le Service.
+                    </p>
+                    <h3>Service Clients</h3>
+                    <p>
+                        Le Service Clients peut être contacté au +237 690 802 254 (numéro payant) ou à l’email suivant :
+                        support@mydoc.cm AFRICA VENTURE GROUP SARL s’efforcera raisonnablement de fournir un accès
+                        ininterrompu au Service. AFRICA VENTURE GROUP SARL exécutera, dans la mesure du possible, la
+                        maintenance périodique en dehors des heures d’ouverture habituelles, et signifiera, dans la
+                        mesure du possible, un préavis pour toute opération de maintenance ou autre suspension de
+                        service à l’adresse www.mydoc.cm Nous pouvons toutefois modifier ou suspendre provisoirement le
+                        Service ou toute partie de ce dernier sans Vous signifier de préavis à des fins de réparations
+                        techniques d’urgence. Lorsque vous appelez le service Client vos données peuvent être traitées
+                        en dehors du Cameroun: néanmoins, nous les traitons toujours conformément aux obligations au
+                        Cameroun en matière de protection des données.
+                    </p>
+                    <h3>
+                        Propriété intellectuelle
+                    </h3>
+                    <p>
+                        Les Contenus présents sur le Site sont la propriété d’AFRICA VENTURE GROUP SARL. Ces Contenus
+                        étant protégés par le droit d’auteur, toute reproduction est en principe conditionnée à l’accord
+                        d’AFRICA VENTURE GROUP SARL en vertu de la Loi n° XX-XXX relative à la propriété intellectuelle.
+                        De même, la reproduction partielle ou totale non autorisée des informations contenues sur
+                        www.mydoc.cm est un acte illicite sanctionné par le Code pénal Camerounais. Aucun élément ne
+                        peut donc être extrait ou mis en vente sans l'autorisation écrite du propriétaire de ce site.
+                    </p>
+                    <h3>Responsabilité
+
+                    </h3>
+                    <p>
+                        AFRICA VENTURE GROUP SARL ne peut être tenue responsable de tout dommage issu d'une
+                        interruption, d'un dysfonctionnement quel qu'il soit, d'une suspension ou de la cessation du
+                        site, et ce pour quelque raison que ce soit ou encore de tout dommage matériel ou immatériel
+                        d’AFRICA VENTURE GROUP SARL ne peut être tenue responsable de tout dommage issu d'une
+                        interruption, d'un dysfonctionnement quel qu'il soit, d'une suspension ou de la cessation du
+                        site, et ce pour quelque raison que ce soit ou encore de tout dommage matériel ou immatériel qui
+                        résulterait d'une quelconque façon de la connexion au Site. La connexion de l'utilisateur au
+                        Site se fait sous son entière responsabilité d’AFRICA VENTURE GROUP SARL n’est pas responsable
+                        des contenus accessibles par le réseau Internet et des dommages qui peuvent naître de leur
+                        consultation et/ou de leur utilisation. A ce titre, votre utilisation du Site Mydoc.cm et du
+                        Service pour accéder au réseau Internet sont de votre seule responsabilité. Il en découle que
+                        AFRICA VENTURE GROUP SARL et ses associés ne pourront être responsables de votre consultation
+                        sur le réseau Internet de contenus illicites, contraires aux bonnes mœurs et/ou à l’ordre public
+                        ou de l’accès à certains contenus pouvant heurter leur sensibilité par jeunes internautes étant
+                        sous votre responsabilité de personne majeure. Vous êtes également seul responsable de tout
+                        préjudice direct ou indirect, matériel ou immatériel causé à des tiers du fait de votre
+                        utilisation du Service ou d’une utilisation du Service grâce à vos Codes d’accès. AFRICA VENTURE
+                        GROUP SARL et ses associés resteront ainsi étrangers à tout litige survenant entre vous et tout
+                        tiers. De la même manière, AFRICA VENTURE GROUP SARL et ses associés déclinent toute
+                        responsabilité quant à la violation des obligations mentionnées à l’article xxxx AFRICA VENTURE
+                        GROUP SARL et ses associés ne seront pas responsables des dommages matériels, de quelque nature
+                        que ce soit, résultant de Votre accès à et Votre utilisation de notre Site, de l’accès non
+                        autorisé à ou utilisation de nos serveurs sécurisés et/ou toutes informations personnelles et/ou
+                        informations financières stockées sur ces derniers, de toute interruption ou arrêt de
+                        transmission à destination ou en provenance de notre Site, des bogue, virus, cheval de Troie, ou
+                        autres de ce genre pouvant être transmis ou pour tout(e) perte ou dommage de quelque nature que
+                        ce soit encouru(e) suite à l’utilisation de tout contenu publié, envoyé par e-mail, transmis, ou
+                        mis autrement à disposition via le Site Mydoc.cm qui résulterait d'une quelconque façon de la
+                        connexion au Site. La connexion de l'utilisateur au Site se fait sous son entière responsabilité
+                    </p>
+
+                    <h3>Limitation de Responsabilité</h3>
+                    <p>
+                        AFRICA VENTURE GROUP SARL et ses associés ne seront en aucun cas tenus responsables envers Vous
+                        de
+                        dommages économiques, indirects, accessoires, particuliers, punitifs, ou immatériels, pertes
+                        indirectes, pertes de bénéfices, pertes d’exploitation, pertes d’informations ou de données,
+                        pertes
+                        de fonds de commerce, d’infractions à la sécurité, ou autres préjudices pécuniaires quels qu’ils
+                        soient. Autant que la loi applicable le permet, AFRICA VENTURE GROUP SARL et ses associes ne
+                        seront
+                        pas tenus responsables envers vous de dommages quels qu’ils soient résultant de tout(e) (a)
+                        faute,
+                        erreur, inexactitude ou non-exhaustivité du contenu, (b) dommage matériel, de quelque nature que
+                        ce
+                        soit, résultant de Votre accès à et Votre utilisation de notre Site, (c) accès non autorisé à ou
+                        utilisation de nos serveurs sécurisés et/ou toute information personnelle et/ou information
+                        financière stockée(s) sur ces derniers, (d) interruption ou arrêt de transmission à destination
+                        ou
+                        en provenance de notre Site, (e) bogue, virus, cheval de Troie, ou autres de ce genre, pouvant
+                        être
+                        transmis à ou par l’intermédiaire de notre Site par tout tiers, et/ou (f) toute erreur ou
+                        omission
+                        dans tout contenu ou pour tout(e) perte ou dommage de quelque nature que ce soit encouru(e)
+                        suite à
+                        Votre utilisation de tout contenu publié, envoyé par e-mail, transmis, ou mis autrement à
+                        disposition via le Site www.mydoc.cm , que ladite responsabilité soit basée sur une rupture de
+                        garantie, contractuelle, délictuelle, ou toute autre théorie juridique, et que AFRICA VENTURE
+                        GROUP
+                        SARL ait ou non été informé de la possibilité desdits dommages. Dans la limite de ce que permet
+                        la
+                        loi applicable, la responsabilité totale d’AFRICA VENTURE GROUP SARL et ses associes envers Vous
+                        pour tous dommages, pertes, et causes d’action (qu’elle soit contractuelle, délictuelle (y
+                        compris,
+                        mais sans limitation, négligence) ou requêtes est limitée au montant, éventuel, que Vous avez
+                        acquitté pour utiliser les Services Mydoc.cm.
+                    </p>
+                    <h3>Garantie d'éviction</h3>
+                    <p>
+                        Vous convenez de défendre, protéger et dégager de toute responsabilité AFRICA VENTURE GROUP
+                        SARL,
+                        ses associes et ses partenaires, en particulier les juridictions, les mairies, la Direction des
+                        Examens et Concours ou tout tiers, contre tous et toutes requêtes, dommages et obligations se
+                        rapportant à Votre utilisation du Service et à l’utilisation du présent Service par toute autre
+                        personne autorisée par Vous. Ceci comprend en particulier les pertes, responsabilités, coûts, et
+                        dépenses (y compris, mais sans limitation, honoraires d’avocat) découlant de : (a) Votre
+                        utilisation
+                        du Service ou son utilisation par une personne que vous autorisez ou Votre accès au Site AFRICA
+                        VENTURE GROUP SARL. ou son accès par une personne que vous autorisez d’une manière qui
+                        occasionne
+                        des dommages (b) Un non-respect de toute disposition des présentes Conditions Générales
+                        d’Utilisation de Votre part ou de la part d’une personne que vous autorisez ; (c) Une violation
+                        de
+                        tout droit de tiers, y compris sans limitation tout droit d’auteur, droit de propriété, ou droit
+                        relatif à la protection de la vie privée, de Votre part ou de la part d’une personne que vous
+                        autorisez. La présente obligation de défense et couverture survivra aux présentes Conditions
+                        Générales d’Utilisation et à Votre utilisation du Site Mydoc.cm.
+                    </p>
+                    <h3>Sécurité</h3>
+                    <p>
+                        Bien que AFRICA VENTURE GROUP SARL et ses associes s’efforcent de sécuriser le Service, vous
+                        reconnaissez et acceptez que le réseau Internet ne soit pas sécurisé. A ce titre, AFRICA VENTURE
+                        GROUP SARL et ses associes ne pourront être tenus responsables de l’intrusion d’un tiers ou de
+                        la
+                        contamination par d’éventuels virus dans son terminal. Il vous appartient ainsi de ne pas
+                        communiquer ou utiliser sur le réseau Internet des données ou informations pour lesquelles vous
+                        souhaiteriez des garanties infaillibles de non divulgation ou de sécurité.
+                    </p>
+                    <h3>Données</h3>
+                    <p>
+                        Les informations recueillies proviennent : Soit de la communication volontaire d'une adresse de
+                        courrier électronique lors du dépôt d'un message électronique. Dans ce cas, votre adresse
+                        courriel
+                        ne nous servira qu'à vous acheminer la réponse. Soit de la participation à l'une de nos enquêtes
+                        en
+                        ligne auxquelles nous procédons ponctuellement, avec l'accord du correspondant Informatique et
+                        Libertés. Les données recueillies à cette occasion ne seront employées qu'aux fins de cette
+                        enquête
+                        et ne seront jamais traitées nominativement. Ces données seront détruites au terme de l'enquête
+                        d’AFRICA VENTURE GROUP SARL et ses associés ont le droit de supprimer toutes les données,
+                        fichiers
+                        ou autres informations en rapport avec l’utilisateur final qui sont stockées dans les systèmes
+                        informatiques d’AFRICA VENTURE GROUP SARL si les Services utilisés par l'utilisateur final sont
+                        terminés, pour une raison quelconque, que ce soit à l’initiative de l'utilisateur final ou de
+                        Mydoc.cm. La sauvegarde des données est de la responsabilité de l'utilisateur final. Nonobstant
+                        cette clause, AFRICA VENTURE GROUP SARL et ses associés sont tenus, le cas échéant, de se
+                        conformer
+                        à la législation relative à la conservation des données. L’utilisation de la logistique d’AFRICA
+                        VENTURE GROUP SARL est soumise au droit applicable de protection des consommateurs. Lorsque ce
+                        dernier prévoit un droit d’accès, de rectification et de suppression, vous pouvez exercer ce
+                        droit
+                        par courrier à AFRICA VENTURE GROUP SARL ou par email à infos@mydoc.cm ou encore sur le site :
+                        http://www.mydoc.cm Toutes les informations personnelles que nous recevons sont celles que vous
+                        nous
+                        communiquez, lors de vos interactions avec le site, comme par exemple l'envoi de formulaire ou
+                        la
+                        saisie d'une commande. Les informations relatives à votre visite ne sont stockées, que pour
+                        traitements statistiques et pour répondre aux obligations légales notamment relatives aux
+                        informations concernant la navigation des clients sur le réseau Internet « pour les besoins de
+                        la
+                        recherche, de la constatation et de la poursuite des infractions pénales ». Au-delà, les données
+                        collectées sur ce site sont destinées au traitement de votre demande ou de votre commande et à
+                        mieux
+                        vous connaître, pour améliorer le service.
+                    </p>
+                    <h3>Modification des conditions générales d'utilisation</h3>
+                    <p>AFRICA VENTURE GROUP SARL peut modifier et mettre à jour les présentes Conditions Générales
+                        d'Utilisation à tout moment et sans préavis afin notamment de les adapter aux évolutions du
+                        Site.
+                    </p>
+                    <h3>Loi applicable et attribution de juridiction</h3>
+                    <p>Les présentes Conditions Générales d'Utilisation sont régies par la loi Camerounaise et
+                        l'utilisateur, par son acceptation des présentes, donne irrévocablement compétence exclusive aux
+                        juridictions Camerounaises. Les tribunaux du ressort de la cour d'appel de Douala sont seuls
+                        compétents pour connaître de tout litige relatif à la validité, l'interprétation ou l'exécution
+                        des
+                        présentes Conditions Générales d'Utilisation, même en cas de pluralité de défendeurs ou d'appels
+                        en
+                        garantie.</p>
+                    <h3>Informations Générales
+
+                    </h3>
+                    <p>La TVA sera facturée comme l'exige la loi au Cameroun. Le présent Site est contrôlé et exploité
+                        par
+                        AFRICA VENTURE GROUP SARL en vue de son utilisation sur toute l’étendue du territoire national
+                        et
+                        depuis l’international. Les personnes qui choisissent d’accéder au Site et/ou au Service à
+                        distance
+                        depuis d’autres pays le font à leurs propres risques et sont tenues de s’assurer de se conformer
+                        à
+                        la législation locale, si et dans la mesure où une législation locale est applicable. En
+                        accédant au
+                        présent Site, Vous et AFRICA VENTURE GROUP SARL, convenez que toutes les questions afférentes à
+                        Votre accès au présent Site ou à Votre utilisation de ce dernier seront régies par et
+                        interprétées
+                        conformément à la législation Camerounaise, sans considération de tout principe de conflits de
+                        loi.
+                        La version française originale des présentes Conditions Générales d’Utilisation peut avoir été
+                        traduite dans d’autres langues. En cas de contradiction ou de divergence entre la version
+                        française
+                        et toute version dans une autre langue des présentes Conditions Générales d’Utilisation, la
+                        version
+                        française prévaudra et AFRICA VENTURE GROUP SARL se réservent le droit de réviser, corriger ou
+                        modifier les présentes Conditions Générales d’Utilisation à tout moment et sans préavis, et il
+                        Vous
+                        incombe d’examiner les présentes Conditions Générales d’Utilisation pour identifier tout
+                        changement.
+                    </p>
+                    <a *ngIf="button2" href="#organisation" (click)="unreadMore()" class="btn-learn-more">
+                        <h4><strong>Less</strong></h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Pricing</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="box">
+                        <h3>Free Plan</h3>
+                        <h4><sup>$</sup>0<span>per month</span></h4>
+                        <ul>
+                            <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
+                            <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
+                            <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
+                            <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
+                            <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+                        </ul>
+                        <a href="#" class="buy-btn">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+                    <div class="box featured">
+                        <h3>Business Plan</h3>
+                        <h4><sup>$</sup>29<span>per month</span></h4>
+                        <ul>
+                            <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
+                            <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
+                            <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
+                            <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
+                            <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                        </ul>
+                        <a href="#" class="buy-btn">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="box">
+                        <h3>Developer Plan</h3>
+                        <h4><sup>$</sup>49<span>per month</span></h4>
+                        <ul>
+                            <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
+                            <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
+                            <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
+                            <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
+                            <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                        </ul>
+                        <a href="#" class="buy-btn">Get Started</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Pricing Section -->
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+            </div>
+
+            <div class="faq-list">
+                <ul>
+                    <li data-aos="fade-up" data-aos-delay="100">
+                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
+                            data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i
+                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                            <p>
+                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non
+                                curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus
+                                non.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li data-aos="fade-up" data-aos-delay="200">
+                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
+                            data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc?
+                            <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
+                                velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec
+                                pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus
+                                turpis massa tincidunt dui.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li data-aos="fade-up" data-aos-delay="300">
+                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
+                            data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit?
+                            <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
+                                pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum
+                                tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
+                                molestie at elementum eu facilisis sed odio morbi quis
+                            </p>
+                        </div>
+                    </li>
+
+                    <li data-aos="fade-up" data-aos-delay="400">
+                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
+                            data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem
+                            et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i
+                                class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
+                                ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit
+                                adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li data-aos="fade-up" data-aos-delay="500">
+                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
+                            data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius
+                            vel pharetra vel turpis nunc eget lorem dolor? <i
+                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo
+                                integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc
+                                eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
+                            </p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Contact</h2>
+                <p>Vous pouvez nous joindre directement ou nous laisses un message directement/p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-5 d-flex align-items-stretch">
+                    <div class="info">
+                        <div class="address">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Location:</h4>
+                            <p>573 Rue Sylvani, Douala</p>
+                        </div>
+
+                        <div class="email">
+                            <i class="bi bi-envelope"></i>
+                            <h4>Email:</h4>
+                            <p>hello@ekotech.cm</p>
+                        </div>
+
+                        <div class="phone">
+                            <i class="bi bi-phone"></i>
+                            <h4>Call:</h4>
+                            <p>+237 699 919 990</p>
+                        </div>
+
+                        <iframe
+                            src="https://www.google.com/maps/dir/4.0515862,9.699612/Africa+Venture+Group+%2F+Eko+Market+Hub,+573+Rue+Sylvani+%2F+Bernabe,+Opposite+Maison+Bois,+Akwa,+Douala+Cameroon,+BP7204,+Douala,+Cameroun/@4.0515111,9.6994689,19.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x106112f54fd9d215:0x1c6a6dce1ceafff9!2m2!1d9.699851!2d4.0515249"
+                            frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="name">Your Name</label>
+                                <input type="text" name="name" class="form-control" id="name" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Your Email</label>
+                                <input type="email" class="form-control" name="email" id="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Subject</label>
+                            <input type="text" class="form-control" name="subject" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Message</label>
+                            <textarea class="form-control" name="message" rows="10" required></textarea>
+                        </div>
+                        <div class="my-3">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        </div>
+                        <div class="text-center"><button type="submit">Send Message</button></div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+<!-- ======= Footer ======= -->
+<footer id="support">
+
+    <div class="footer-newsletter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h4 id="support">Vous inscrires</h4>
+                    <p>pour avoire vos documents a traver nous vous devez creer un compte </p>
+                    <form action="" method="post">
+                        <input type="email" name="email" placeholder="email"><input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>Mydoc Cameroun</h3>
+                    <p>
+                        <br><br>
+                        <strong>Phone:</strong> +237 6784 241 25<br>
+                        <strong>Email:</strong>hello@mydoc.cm<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Nos Services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="http://ekotech.cm/sms-marketing.html"> Bulk sms
+                                et API </a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="http://ekotech.cm/eko-data-base.html">Base des
+                                Conctacts</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="https://ekomarkethub.com/shop/">E-commerce</a>
+                        </li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="https://africaventurelab.com/">Consulting</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Nos Reseau sociaux</h4>
+                    <p>Nos differents reseaux sociaux</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            Mes documents <strong><span>Au</span></strong> Cameroun &copy;
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+            &copy; Mydoc 2021
+        </div>
+    </div>
+</footer><!-- End Footer -->

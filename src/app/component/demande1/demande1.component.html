@@ -1,0 +1,207 @@
+<div>
+    <mat-stepper #stepper>
+        <form [formGroup]="firstFormGroup">
+            <mat-step [stepControl]="secondFormGroup1" errorMessage="Donnees imcomplet">
+                <ng-template matStepLabel>Vos cordonnees</ng-template>
+                <div class="form-group">
+                    <label> Nom * </label>
+                    <input type="text" [formControl]="nom" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" placeholder="Nom" />
+                    <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                        <div *ngIf="f.nom.errors.required">Veuillez renseigner le Votre Nom</div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label> Prenom *</label>
+                    <input type="text" [formControl]="prenom" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && f.prenom.errors}" placeholder="prenom" />
+                    <div *ngIf=" submitted &&f.prenom.errors" class="invalid-feedback">
+                        <div *ngIf="f.prenom.errors.required">Veuillez renseigner le Votre Prenom</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label> Email </label>
+                    <input type="text" class="form-control" [formControl]="email"
+                        [ngClass]="{'is-invalid':submitted && f.email.errors}" placeholder="email">
+
+                    <div *ngIf=" submitted &&f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Adresse email invalide('mydoc@gmail.cm')</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label> Tel * </label>
+                    <input type="tel" class="form-control" [formControl]="tel"
+                        [ngClass]="{'is-invalid':submitted && f.tel.errors}" placeholder="telephone">
+
+                    <div *ngIf=" submitted &&f.tel.errors" class="invalid-feedback">
+                        <div *ngIf="f.tel.errors.required">Veuillez renseigner le Votre numero </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button mat-button matStepperNext class="btn btn-outline-success">Next >></button>
+                </div>
+                <div *ngIf="testEnregis" style="text-align:center">
+                    <button type="submit" (click)="addDemande()" class="btn btn-primary btn-lg">Enregistrer</button>
+                    <button type="submit" (click)="onReset()" class="btn btn-warning btn-lg">Tout Annuler</button>
+
+                </div>
+                <div *ngIf="testModif" style="text-align:center">
+                    <button (click)="editeDemande()" class="btn btn-primary btn-lg">Modifier</button>
+                    <button class="btn btn-success btn-lg">Soumetre</button>
+                    <button (click)="annuler()" class="btn btn-warning btn-lg">Annuler</button>
+                </div>
+
+            </mat-step>
+
+            <mat-step [stepControl]="firstFormGroup">
+
+                <ng-template matStepLabel>Type de documets </ng-template>
+
+
+                <label> Choisir type de document * </label>
+
+                <div id="cid_12" class="form-input">
+                    <select class="form-dropdown" id="input_12" name="q12_nationalite" style="width:150px"
+                        data-component="dropdown" [formControl]="typedoc"
+                        [ngClass]="{'is-invalid':submitted && f.typedoc.errors }"> Certificat de Nationalité>
+                        <option class="form-control"> Certificat de Nationalité</option>
+                        <option class="form-control"> Casier judicier </option>
+                        <option class="form-control"> Acte de Naissance </option>
+                        <option class="form-control"> Relever de Probatoire </option>
+                        <option class="form-control"> Diplome de Bac </option>
+                        <option class="form-control"> Diplome de BEPC </option>
+                        <option class="form-control"> Diplome de Licence </option>
+                        <option class="form-control"> Relever de Note </option>
+                        <option class="form-control"> Actes de décès </option>
+                        <option class="form-control"> Actes de mariage </option>
+                        <option class="form-control"> Certificat d’acquisition de nationalité
+                        </option>
+                        <option class="form-control"> Certification / Legalisation de documents
+                        </option>
+                        <option class="form-control"> Retrait CNI / Passport / Permis de Conduire
+                        </option>
+                        <option class="form-control"> Carte de residence / séjour </option>
+                    </select>
+                    <div *ngIf=" submitted &&f.typedoc.errors" class="invalid-feedback">
+                        <div *ngIf="f.typedoc.errors.required">Veuillez selectionner le type de demande </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label> Commentaire </label>
+                    <textarea type="textarea" class="form-control" [formControl]="commentaire"
+                        placeholder="Entrez votre commentaire ici."></textarea>
+                </div>
+
+                <div>
+                    <button mat-button matStepperPrevious class="btn btn-outline-success">
+                        << Back</button>
+                            <button mat-button matStepperNext class="btn btn-outline-success">Next >></button>
+                </div>
+                <div *ngIf="testEnregis" style="text-align:center">
+                    <button type="submit" (click)="addDemande()" class="btn btn-primary btn-lg">Enregistrer</button>
+                    <button type="submit" (click)="onReset()" class="btn btn-warning btn-lg">Tout Annuler</button>
+                </div>
+                <div *ngIf="testModif" style="text-align:center">
+                    <button (click)="editeDemande()" class="btn btn-primary btn-lg">Modifier</button>
+                    <button class="btn btn-success btn-lg">Soumetre</button>
+                    <button (click)="annuler()" class="btn btn-warning btn-lg">Annuler</button>
+                </div>
+
+            </mat-step>
+
+            <mat-step [stepControl]="firstFormGroup" errorMessage="Address is required.">
+
+                <ng-template matStepLabel>Votre adresse</ng-template>
+                <div class="form-group">
+                    <label> ville * </label>
+                    <input type="text" class="form-control" [formControl]="ville"
+                        [ngClass]="{'is-invalid':submitted && f.ville.errors}" placeholder="votre ville de residence">
+
+                    <div *ngIf=" submitted && f.ville.errors" class="invalid-feedback">
+                        <div *ngIf="f.ville.errors.required">Veuillez renseigner le Votre adresse actuelle </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label> adresse complet * </label>
+                    <input type="text" class="form-control" [formControl]="adresseComp"
+                        [ngClass]="{'is-invalid':submitted && f.adresseComp.errors}" placeholder="votre complet">
+
+                    <div *ngIf=" submitted && f.adresseComp.errors" class="invalid-feedback">
+                        <div *ngIf="f.adresseComp.errors.required">Veuillez renseigner le Votre complet</div>
+                    </div>
+                </div>
+
+                <div>
+                    <button mat-button matStepperPrevious class="btn btn-outline-success">
+                        << Back</button>
+                            <button mat-button matStepperNext class="btn btn-outline-success">Next >></button>
+                </div>
+                <div *ngIf="testEnregis" style="text-align:center">
+                    <button type="submit" (click)="addDemande()" class="btn btn-primary btn-lg">Enregistrer</button>
+                    <button type="submit" (click)="onReset()" class="btn btn-warning btn-lg">Tout Annuler</button>
+
+                </div>
+                <div *ngIf="testModif" style="text-align:center">
+                    <button (click)="editeDemande()" class="btn btn-primary btn-lg">Modifier</button>
+                    <button class="btn btn-success btn-lg">Soumetre</button>
+                    <button (click)="annuler()" class="btn btn-warning btn-lg">Annuler</button>
+                </div>
+
+            </mat-step>
+
+            <mat-step [stepControl]="firstFormGroup" errorMessage="Address is required.">
+
+                <ng-template matStepLabel>Adresse de retrait</ng-template>
+
+
+                <div class="form-group">
+                    <label> ville * </label>
+                    <input type="text" class="form-control" [formControl]="villeRetrait"
+                        [ngClass]="{'is-invalid':submitted && f.villeRetrait.errors}"
+                        placeholder="Ville de retrait du document">
+
+                    <div *ngIf=" submitted && f.villeRetrait.errors" class="invalid-feedback">
+                        <div *ngIf="f.villeRetrait.errors.required">Veuillez renseigner la vile de retrait </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label> adresse complet * </label>
+                    <input type="text" class="form-control" formControlName="adresseRetrait"
+                        [ngClass]="{'is-invalid':submitted && f.adresseRetrait.errors}"
+                        placeholder="Ville, Quatier,etc.." />
+
+                    <div *ngIf=" submitted && f.adresseRetrait.errors" class="invalid-feedback">
+                        <div *ngIf="f.adresseRetrait.errors.required">Veuillez renseigner l'adresse complet de la ville
+                            de retrait </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button mat-button matStepperPrevious class="btn btn-outline-success">
+                        << Back</button>
+                </div>
+                <div *ngIf="testEnregis" style="text-align:center">
+                    <button type="submit" (click)="addDemande()" class="btn btn-primary btn-lg">Enregistrer</button>
+                    <button type="submit" (click)="onReset()" class="btn btn-warning btn-lg">Tout Annuler</button>
+
+                </div>
+
+                <div *ngIf="testModif" style="text-align:center">
+                    <button (click)="editeDemande()" class="btn btn-primary btn-lg">Modifier</button>
+                    <button class="btn btn-success btn-lg">Soumetre</button>
+                    <button (click)="annuler()" class="btn btn-warning btn-lg">Annuler</button>
+                </div>
+
+
+            </mat-step>
+        </form>
+
+    </mat-stepper>
+
+</div>

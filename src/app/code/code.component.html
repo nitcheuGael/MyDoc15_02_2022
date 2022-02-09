@@ -1,0 +1,12 @@
+<div class="container" id="container">
+    <div class="social-container">
+
+        <div class="otp">
+            <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-success mt-4" (click)="handleClick()">Validez votre Code</button>
+
+            </div>
+        </div>
+    </div>
+</div>
