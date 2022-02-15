@@ -14,7 +14,6 @@ import { DataTablesModule } from 'angular-datatables';
 import { MatButtonModule } from '@angular/material/button';
 
 
-
 const routes: Routes = [
   {
     path: '',
@@ -36,7 +35,8 @@ const routes: Routes = [
       RouterModule.forChild(routes),
       ChartsModule,
       DataTablesModule,
-      MatButtonModule
+      MatButtonModule,
+
 
     ],
   declarations: [DashboardComponent, TotalVariablesComponent, YearlychartComponent,

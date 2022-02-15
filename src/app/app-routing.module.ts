@@ -4,6 +4,7 @@ import { CodeComponent } from './code/code.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { LandingComponent } from './landing/landing.component';
 import { FullComponent } from './layouts/full/full.component';
+import { MenuComponent } from './menu/menu.component';
 export const Approutes: Routes = [
 
 
@@ -47,6 +48,10 @@ export const Approutes: Routes = [
   {
     path: 'code',
     component: CodeComponent
+  },
+  {
+    path: 'menu',
+    component: MenuComponent
   },
   {
     path: 'loading',

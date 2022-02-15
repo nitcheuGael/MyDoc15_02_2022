@@ -15,6 +15,8 @@ export class LandingComponent implements OnInit {
   afficheCon = false
   button1 = true
   button2 = false
+  title = 'app';
+
 
   constructor(
     private serviceAuth: AuthService,

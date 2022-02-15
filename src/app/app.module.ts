@@ -44,9 +44,18 @@ import { DialogConfirmActionComponent } from './Dialog/dialog-confirm-action/dia
 import { CodeComponent } from './code/code.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { DataTablesModule } from 'angular-datatables';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconTestingModule } from '@angular/material/icon/testing';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
+import { MatIconModule } from '@angular/material/icon';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MenuComponent } from './menu/menu.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -71,6 +80,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DialogoHeaderComponent,
     DialogConfirmActionComponent,
     CodeComponent,
+    MenuComponent,
+
 
 
   ],
@@ -90,6 +101,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     MatGridListModule,
     MatDialogModule,
+
+    MatMenuModule,
+    MatIconTestingModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatToolbarModule,
+
     // fin material
 
     RouterModule.forRoot(Approutes, { useHash: false, relativeLinkResolution: 'legacy' }),
@@ -98,9 +117,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     //Fire stort
     AngularFireStorageModule,
     NgOtpInputModule,
-    DataTablesModule
-
-
+    DataTablesModule,
+    BrowserModule,
+    MatButtonModule,
+    FlexLayoutModule,
   ],
   providers: [
     {

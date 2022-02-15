@@ -35,6 +35,9 @@ export class ConnexionComponent implements OnInit {
   phoneNumber: any;
   reCaptchaVerifier!: any;
 
+  public contance: Constante
+    // emailh = new FormControl('', [Validators.required, Validators.email]);
+    | undefined
 
   // emailh = new FormControl('', [Validators.required, Validators.email]);
 
@@ -49,10 +52,9 @@ export class ConnexionComponent implements OnInit {
       public dialog: MatDialog,
       private ngZone: NgZone,
       public serviceMailSms: MailService,
-      public contance: Constante
 
 
-    ) { }
+  ) { }
   //public user: User | undefined  https://remotestack.io/angular-firebase-authentication-example-tutorial/
 
 
