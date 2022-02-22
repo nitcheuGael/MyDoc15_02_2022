@@ -20,12 +20,7 @@
 }
 .coleure {
   background-color: #000;
-}
-p,
-h4,
-h3 {
-  color: #fff;
-}
-.color1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: whith;
   color: #fff;
 }

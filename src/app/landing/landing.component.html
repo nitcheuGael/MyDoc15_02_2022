@@ -139,7 +139,12 @@
                     </mat-menu>
 
                 </a>
-
+                <a *ngIf="testbutonD"><button class="getstarted scrollto skin5" (click)="logOut()"> <b>
+                            Se Deconnecter</b>
+                    </button></a>
+                <a *ngIf="testbutonC"><button class="getstarted scrollto skin5" [routerLink]="['/','loading']"> <b>
+                            Se Connecter</b>
+                    </button></a>
 
 
 
@@ -150,7 +155,7 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+                        <div class="col-lg-6 order-1 order-lg-2 col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                             data-aos="fade-up" data-aos-delay="200">
                             <h1>La solution ideale pour vous</h1>
                             <h2>Entrez en possession de vos documents administratifs a distance</h2>
@@ -178,7 +183,7 @@
             <!-- <main id="main"> -->
 
             <!-- ======= Cliens Section ======= -->
-            <section id="cliens" class="cliens section-bg">
+            <!--   <section id="cliens" class="cliens section-bg">
                 <div class="container">
 
                     <div class="row" data-aos="zoom-in">
@@ -210,7 +215,8 @@
                     </div>
 
                 </div>
-            </section><!-- End Cliens Section -->
+            </section> -->
+            <!-- End Cliens Section -->
 
 
 
@@ -581,7 +587,7 @@
                             <img src="assets/img/skills.png" class="img-fluid" alt="">
                         </div>
                         <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-                            <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>
+                            <h2>Voluptatem dignissimos provident quasi corporis voluptates</h2>
                             <p class="fst-italic">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                 incididunt ut
@@ -1647,7 +1653,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-6">
                                 <h4 id="support">Vous inscrire</h4>
-                                <p>pour avoire vos documents a traver nous vous devez creer un compte </p>
+                                <h4>pour avoire vos documents a traver nous vous devez creer un compte </h4>
                                 <form action="" method="post">
                                     <input type="email" name="email" placeholder="email"><input type="submit"
                                         value="Subscribe">
@@ -1663,14 +1669,15 @@
 
                             <div class="col-lg-3 col-md-6 footer-contact">
                                 <h3>Mydoc Cameroun</h3>
-                                <p>
+                                <h4>
                                     <br><br>
                                     <strong>Phone:</strong> +237 6784 241 25<br>
                                     <strong>Email:</strong>hello@mydoc.cm<br>
-                                </p>
+                                </h4>
                             </div>
 
                             <div class="col-lg-3 col-md-6 footer-links">
+
                                 <h4>Useful Links</h4>
                                 <ul>
                                     <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
@@ -1701,7 +1708,7 @@
 
                             <div class="col-lg-3 col-md-6 footer-links">
                                 <h4>Nos Reseau sociaux</h4>
-                                <p>Nos differents reseaux sociaux</p>
+                                <h4>Nos differents reseaux sociaux</h4>
                                 <div class="social-links mt-3">
                                     <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                                     <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>

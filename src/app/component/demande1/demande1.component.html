@@ -88,6 +88,7 @@
                         <option class="form-control"> Retrait CNI / Passport / Permis de Conduire
                         </option>
                         <option class="form-control"> Carte de residence / séjour </option>
+                        <option class="form-control"> Autres </option>
                     </select>
                     <div *ngIf=" submitted &&f.typedoc.errors" class="invalid-feedback">
                         <div *ngIf="f.typedoc.errors.required">Veuillez selectionner le type de demande </div>
@@ -192,13 +193,14 @@
                 </div>
                 <div *ngIf="testEnregis" style="text-align:center">
                     <button type="submit" (click)="addDemande()" class="btn btn-primary btn-lg">Enregistrer</button>
+                    <button class="btn btn-success btn-lg">Soumetre</button>
+
                     <button type="submit" (click)="onReset()" class="btn btn-warning btn-lg">Tout Annuler</button>
 
                 </div>
 
                 <div *ngIf="testModif" style="text-align:center">
                     <button (click)="editeDemande()" class="btn btn-primary btn-lg">Modifier</button>
-                    <button class="btn btn-success btn-lg">Soumetre</button>
                     <button (click)="annuler()" class="btn btn-warning btn-lg">Annuler</button>
                 </div>
 

@@ -153,11 +153,11 @@ export class ConnexionComponent implements OnInit {
       var objt = "Creation de Compte";
       var message = "Nouveau compte Creer email:" + this.email;
       var entete = 'From: Mydoc@mydoc.cm'
-      this.serviceMailSms.sendEmail(email, objt, message, entete).then((projet) => {
-
-      }).catch(rejet => {
-
-      })
+      /*  this.serviceMailSms.sendEmail(email, objt, message, entete).then((projet) => {
+ 
+       }).catch(rejet => {
+ 
+       }) */
     }
     )
   }
@@ -206,12 +206,18 @@ export class ConnexionComponent implements OnInit {
           JSON.stringify(confirmationResult.verificationId)
         );
         this.ngZone.run(() => {
+          alert("Verifiez votre messagerie pour confirmer le code de verification")
           this.router.navigate(['/code']);
         });
       })
       .catch((error) => {
         // console.log(error.message);
-        alert(error.message);
+        if (this.phoneNumber.length != 13 || 14) {
+          alert("Veuillez Respectez le formatage  +2376XXXXX")
+        } else {
+          alert("Veuillez verrifier votre connexion internet");
+        }
+
         setTimeout(() => {
           window.location.reload();
         }, 5000);

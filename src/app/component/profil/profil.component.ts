@@ -167,15 +167,16 @@ export class ProfilComponent implements OnInit {
       if (url) {
         this.fb = url;
         this.downloadURL = url;
-        console.log('valeure de la console')
+
+        // console.log('valeure de la console')
       } else {
         this.downloadURL = "assets/images/users/profil.jpg";
-        console.log('la valeure de download existe pas', this.downloadURL);
+        //  console.log('la valeure de download existe pas', this.downloadURL);
 
       }
-      console.log('la valeure de fb', this.downloadURL);
+      // console.log('la valeure de fb', this.downloadURL);
     }).catch(() => {
-      console.log("les erreurs de l'afficharge");
+      //console.log("les erreurs de l'afficharge");
     })
       ;
 

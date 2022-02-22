@@ -201,7 +201,7 @@ export class RecentTableComponent implements OnInit {
         // this.dataService.afflisteDemande(this.listedDemande)
         let test = true
         localStorage.setItem('modifierDemande', JSON.stringify(this.listedDemande))
-        localStorage.setItem('testModif', JSON.stringify(test))
+        localStorage.setItem('testModif', this.idDemande)
 
         this.router.navigate(['/component/', 'demande1']);
         this.testAfficheInfos = true

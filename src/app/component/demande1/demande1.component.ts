@@ -36,6 +36,16 @@ export class Demande1Component implements OnInit {
   testModif = false
   testEnregis = true
   submitted = false;
+  testeDeRemplissage = false
+  demandeIncomplete: demande[] = [];
+  // demandeIncomplete1: any
+  statutDemanI = 'incomplet'
+  statutDemanSoum = 'enCour'
+  idDemandeI = ''
+  idDemandeRecente = ''
+  typeDemande: any;
+  monObjet: any = localStorage.getItem('testModif');
+
 
 
   constructor(
@@ -44,15 +54,26 @@ export class Demande1Component implements OnInit {
     private dialogoService: DialogConfirmeService,
     private router: Router,
     private toast: ToastrService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+
+
   ) { }
 
   ngOnInit(): void {
     this.initialisationformulair()
     this.afAuth.currentUser.then((user) => {
       this.id = user?.uid
+      if (this.monObjet == null) {
+        this.testPremplissage()
+      } else {
+        this.testModif = true
+        this.testEnregis = false
+        this.modifDemande()
+        localStorage.removeItem('testModif')
+      }
+
     })
-    this.modifDemande()
+
   }
 
 
@@ -73,6 +94,55 @@ export class Demande1Component implements OnInit {
       villeRetrait: ['', Validators.required],
       adresseRetrait: ['', Validators.required],
       photo: ['']
+    })
+
+  }
+
+
+  testPremplissage() {
+
+    this.ServiceBd.getDemandeByIdAnd_Statut(this.id, this.statutDemanI).then((data: any) => {
+      this.demandeIncomplete = data.demande as demande[];
+      if (this.demandeIncomplete.length > 0) {
+        this.testeDeRemplissage = true
+        // Dans ce cas je remplis le formulaire
+
+        this.idDemandeI = data.demande[0].id
+        this.firstFormGroup = new FormGroup({
+          nom: new FormControl(this.demandeIncomplete[0].nom),
+          prenom: new FormControl(this.demandeIncomplete[0].prenom),
+          email: new FormControl(this.demandeIncomplete[0].email),
+          tel: new FormControl(this.demandeIncomplete[0].telephone),
+          typedoc: new FormControl(this.demandeIncomplete[0].typeDemande),
+          villeRetrait: new FormControl(this.demandeIncomplete[0].VilleRetrait),
+          adresseComp: new FormControl(this.demandeIncomplete[0].VilleDemandeur),
+          commentaire: new FormControl(this.demandeIncomplete[0].commentaire),
+          ville: new FormControl(this.demandeIncomplete[0].VilleDemandeur),
+          adresseRetrait: new FormControl(this.demandeIncomplete[0].adresseRetrait),
+
+        })
+        this.submitted = true
+      } else {
+
+        this.testeDeRemplissage = false
+        this.submitted = false
+
+      }
+    })
+
+  }
+
+  testPremplissageScond() {
+
+    this.ServiceBd.getDemandeByIdAnd_Statut(this.id, this.statutDemanI).then((data: any) => {
+      this.demandeIncomplete = data.demande as demande[];
+      if (this.demandeIncomplete.length > 0) {
+        this.testeDeRemplissage = true
+
+      } else {
+        this.testeDeRemplissage = false
+
+      }
     })
 
   }
@@ -120,66 +190,190 @@ export class Demande1Component implements OnInit {
 
 
   addDemande() {
+    this.testPremplissageScond()
+
     this.submitted = true
-    if (!this.firstFormGroup.invalid) {
-      this.dialogoService.confirmActionAlertDialogue('Voullez vous vraiment enregistrer cette demande? ').then(result => {
+    // Je teste avec la valeure boolene si je dois Modifier?(valeure True) ou Enregistrer(valeure false)
 
-        if (result) {
-          if (this.id != null) {
+    if (!this.testeDeRemplissage) {
 
+      if (!this.firstFormGroup.invalid) {
+        //PREMIERE REMPLISSAGE AYANT TOUT REMPLIR
+        this.dialogoService.confirmActionAlertDialogue('Voullez vous vraiment enregistrer cette demande? ').then(result => {
+
+          if (result) {
+            if (this.id != null) {
+
+              var demandelist = new demande(this.nom?.value, this.prenom?.value, this.email?.value
+                , this.tel?.value, this.id, this.typedoc?.value, this.statut, this.adresseRetrait?.value, this.villeRetrait?.value,
+                this.adresseComp?.value, this.ville?.value, this.photo?.value, 'contra', this.commentaire?.value)
+
+              this.ServiceBd.addDemande(demandelist).then((data: any) => {
+                this.idDemandeRecente = data.id
+                this.toast.info("demande enregistres avec succes")
+                this.submitted = false
+                this.firstFormGroup.reset();
+                this.dialogoService.confirmActionAlertDialogue('Souhaitez vous soumettres directement cette demande?').then((result => {
+
+                  this.ServiceBd.editstatut(this.idDemandeRecente, this.statutDemanSoum).then((resul => {
+                    // DEMANDE SOUMIS AVEC SUCCES
+                  })).catch(err => {
+                    // ECHEC DE  SOUMISSION DE LA DEMANDE 
+                  })
+                  // apres soumision il est renvoyer au dashbord
+                  this.router.navigate(['/dashboard']);
+                }))
+
+              })
+              this.submitted = false
+
+
+
+            } else {
+              this.toast.warning('Utilisateur inconnue')
+            }
+          }
+        });
+      } else {
+        //PREMIERE REMPLIRE MAIS PAS TOUS LES ELLEMENTS REMPLIRE
+        this.statut = this.statutDemanI
+        this.dialogoService.confirmActionAlertDialogue('Voullez  enregistrer cette demande? ').then(result => {
+
+          if (result) {
+            if (this.id != null) {
+
+              var demandelist = new demande(this.nom?.value, this.prenom?.value, this.email?.value
+                , this.tel?.value, this.id, this.typedoc?.value, this.statut, this.adresseRetrait?.value, this.villeRetrait?.value,
+                this.adresseComp?.value, this.ville?.value, this.photo?.value, 'contra', this.commentaire?.value)
+
+              this.ServiceBd.addDemande(demandelist).then((data: any) => {
+                this.toast.info("demande enregistres avec succes")
+                this.submitted = false
+
+
+
+              }).catch(error => {
+              })
+              this.submitted = false
+
+            } else {
+              this.toast.warning('Utilisateur inconnue')
+            }
+          }
+        });
+
+      }
+
+    } else {
+      // AUTRES REMPLISSAGE AVEC TOUS LES ELEMENTS CORRECTEMENT REMPLIR
+
+      // ici il a eu une demande imcomplete on utilise a ce niveau la modification
+
+      this.firstFormGroup = this.formBuilder.group({
+        nom: [this.nom?.value, Validators.required],
+        prenom: [this.prenom?.value, Validators.required],
+        email: [this.email?.value, Validators.email],
+        tel: [this.tel?.value, [
+          Validators.required,
+
+          Validators.pattern("^((\\+237-?)|0)?[0-9]{9}$")
+        ]],
+        typedoc: [this.typedoc?.value, Validators.required],
+        commentaire: [this.commentaire?.value],
+        ville: [this.ville?.value, Validators.required],
+        adresseComp: [this.adresseComp?.value, Validators.required],
+        villeRetrait: [this.villeRetrait?.value, Validators.required],
+        adresseRetrait: [this.adresseRetrait?.value, Validators.required],
+        photo: ['']
+      })
+
+
+
+
+      if (!this.firstFormGroup.invalid) {
+        this.dialogoService.confirmActionAlertDialogue('Voullez vous vraiment modifier cette demande? ').then(result => {
+          if (result) {
             var demandelist = new demande(this.nom?.value, this.prenom?.value, this.email?.value
               , this.tel?.value, this.id, this.typedoc?.value, this.statut, this.adresseRetrait?.value, this.villeRetrait?.value,
               this.adresseComp?.value, this.ville?.value, this.photo?.value, 'contra', this.commentaire?.value)
+            this.ServiceBd.editAllDemande(demandelist, this.idDemandeI).then((valut) => {
+              this.toast.info("demande Modifier avec succes")
 
-            this.ServiceBd.addDemande(demandelist).then((data: any) => {
-              this.toast.info("demande enregistres avec succes")
-              this.submitted = false
-              this.firstFormGroup.reset();
+              this.dialogoService.confirmActionAlertDialogue('Souhaitez vous soumettres directement cette demande?').then((result => {
 
-            }).catch(error => {
-            })
-          } else {
-            this.toast.warning('Utilisateur inconnue')
+                //SOUMISSION DE LA DEMANDE : IDDEMANDE 
+                this.ServiceBd.editstatut(this.id, this.statutDemanSoum).then((resul => {
+                  // DEMANDE SOUMIS AVEC SUCCES
+                })).catch(err => {
+                  // ECHEC DE  SOUMISSION DE LA DEMANDE 
+                })
+                // apres soumision il est renvoyer au dashbord
+                this.router.navigate(['/dashboard']);
+              }))
+
+
+            }).catch((erreur => {
+            }))
+            this.submitted = true
+
           }
-        }
-      });
-    } else {
-      window.alert('Veuillez renseigner tous les champs oubligatoire')
+        });
+      } else {
+        // AUTRES REMPLISSAGE AVEC LES ELEMENTS PAS CORRECTEMENT REMPLIR
+
+        this.statut = this.statutDemanI
+        this.dialogoService.confirmActionAlertDialogue('Voullez vous vraiment modifier cette demande? ').then(result => {
+          if (result) {
+            var demandelist = new demande(this.nom?.value, this.prenom?.value, this.email?.value
+              , this.tel?.value, this.id, this.typedoc?.value, this.statut, this.adresseRetrait?.value, this.villeRetrait?.value,
+              this.adresseComp?.value, this.ville?.value, this.photo?.value, 'contra', this.commentaire?.value)
+            this.ServiceBd.editAllDemande(demandelist, this.idDemandeI).then((valut) => {
+              this.toast.info("demande Modifier avec succes")
+
+            }).catch((erreur => {
+            }))
+
+
+          }
+        });
+      }
 
     }
 
+
   }
 
+
+
   modifDemande() {
-    // this.dataService.listeDemande.subscribe((donne) => {
-
     this.listeDonnee = JSON.parse(localStorage.getItem('modifierDemande') || '') as demande
-    this.testModif = true
-    this.testEnregis = false
+
     this.idDemande = this.listeDonnee.id
+    this.firstFormGroup = this.formBuilder.group({
+      nom: [this.listeDonnee.nom, Validators.required],
+      prenom: [this.listeDonnee.prenom, Validators.required],
+      email: [this.listeDonnee.email, Validators.email],
+      tel: [this.listeDonnee.tel, [
+        Validators.required,
 
-    this.firstFormGroup = new FormGroup({
-      nom: new FormControl(this.listeDonnee.nom),
-      prenom: new FormControl(this.listeDonnee.prenom),
-      email: new FormControl(this.listeDonnee.email),
-      tel: new FormControl(this.listeDonnee.tel),
-      typedoc: new FormControl(this.listeDonnee.typeDemande),
-      villeRetrait: new FormControl(this.listeDonnee.villeRetrait),
-      adresseComp: new FormControl(this.listeDonnee.villeDemandeur),
-      commentaire: new FormControl(this.listeDonnee.commentaire),
-      ville: new FormControl(this.listeDonnee.VilleDemandeur),
-      adresseRetrait: new FormControl(this.listeDonnee.adresseRetrait),
-
+        Validators.pattern("^((\\+237-?)|0)?[0-9]{9}$")
+      ]],
+      typedoc: [this.listeDonnee.typeDemande, Validators.required],
+      commentaire: [this.listeDonnee.commentaire],
+      ville: [this.listeDonnee.villeDemandeur, Validators.required],
+      adresseComp: [this.listeDonnee.adresseDemandeur, Validators.required],
+      villeRetrait: [this.listeDonnee.villeRetrait, Validators.required],
+      adresseRetrait: [this.listeDonnee.adresseRetrait, Validators.required],
+      photo: ['']
     })
     localStorage.removeItem('modifierDemande')
-    // })
-
   }
 
   editeDemande() {
+
     this.submitted = true
     if (!this.firstFormGroup.invalid) {
-      this.dialogoService.confirmActionAlertDialogue('Voullez vous vraiment modifier cette demande? ').then(result => {
+      this.dialogoService.confirmActionAlertDialogue('Voullez vous vraiment modifier cette demande?').then(result => {
         if (result) {
           var demandelist = new demande(this.nom?.value, this.prenom?.value, this.email?.value
             , this.tel?.value, this.id, this.typedoc?.value, this.statut, this.adresseRetrait?.value, this.villeRetrait?.value,
@@ -221,6 +415,27 @@ export class Demande1Component implements OnInit {
   onReset(): void {
     this.submitted = false;
     this.firstFormGroup.reset();
+  }
+
+
+  // Soumision de la demande
+
+  soumettreDemande() {
+    if (!this.firstFormGroup.invalid) {
+      this.dialogoService.confirmActionAlertDialogue('Voullez vous vraiment soumettre cette demande? ').then(result => {
+        if (result) {
+          this.ServiceBd.editstatut(this.idDemande, 'enCour').then((data) => {
+
+          }).catch(erro => {
+
+          })
+        } else {
+
+        }
+      });
+    } else {
+      window.alert('Veuillez renseigner tous les champs oubligatoire')
+    }
   }
 
 }
