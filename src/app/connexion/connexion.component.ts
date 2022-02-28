@@ -11,6 +11,7 @@ import { DialogComponent } from '../Dialog/dialog/dialog.component';
 import firebase from 'firebase/app';
 import { MailService } from '../service/smsMail/mail.service';
 import { Constante } from '../entite/constante';
+import { DialogConfirmService } from '../service/dialog-confirm.service';
 
 
 
@@ -52,9 +53,11 @@ export class ConnexionComponent implements OnInit {
       public dialog: MatDialog,
       private ngZone: NgZone,
       public serviceMailSms: MailService,
+      private message_confirme: DialogConfirmService
 
 
-  ) { }
+
+    ) { }
   //public user: User | undefined  https://remotestack.io/angular-firebase-authentication-example-tutorial/
 
 
@@ -141,7 +144,7 @@ export class ConnexionComponent implements OnInit {
     }).catch(err => {
       this.toast.error('echec de connexion', 'error');
       this.pasword?.setValue('');
-      this.dialog.open(DialogComponent)
+      this.message_confirme.confirmActionAlertDialogue('Email ou Mot de passe incorrect')
 
     });
     // CREATION DE COMPTE VIA EMAIL MOT DE PASSE
@@ -206,16 +209,20 @@ export class ConnexionComponent implements OnInit {
           JSON.stringify(confirmationResult.verificationId)
         );
         this.ngZone.run(() => {
-          alert("Verifiez votre messagerie pour confirmer le code de verification")
+          this.message_confirme.confirmActionAlertDialogue('Verifiez votre messagerie pour confirmer le code de verification')
           this.router.navigate(['/code']);
         });
       })
       .catch((error) => {
         // console.log(error.message);
         if (this.phoneNumber.length != 13 || 14) {
-          alert("Veuillez Respectez le formatage  +2376XXXXX")
+
+          this.message_confirme.confirmActionAlertDialogue('Veuillez Respectez le formatage  +2376XXXXX')
+
         } else {
-          alert("Veuillez verrifier votre connexion internet");
+
+          this.message_confirme.confirmActionAlertDialogue('Veuillez verrifier votre connexion internet')
+
         }
 
         setTimeout(() => {

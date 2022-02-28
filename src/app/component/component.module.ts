@@ -26,6 +26,7 @@ import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
 import { SuiviComponent } from './suivi/suivi.component';
 import { ProfilComponent } from './profil/profil.component';
 import { DataTablesModule } from 'angular-datatables';
+import { DialogMessageOkComponent } from '../Dialog/dialog-message-ok/dialog-message-ok.component';
 
 
 
@@ -68,6 +69,7 @@ import { DataTablesModule } from 'angular-datatables';
     MesDemandesComponent,
     SuiviComponent,
     ProfilComponent,
+    DialogMessageOkComponent,
 
 
 

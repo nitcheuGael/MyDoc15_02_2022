@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogConfirmActionComponent } from 'src/app/Dialog/dialog-confirm-action/dialog-confirm-action.component';
+import { DialogMessageOkComponent } from '../Dialog/dialog-message-ok/dialog-message-ok.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DialogConfirmeService {
+export class DialogConfirmService {
 
   constructor(
     private dialog: MatDialog
 
   ) { }
 
-  confirmActionAlertDialogue(message?: string) {
+  confirmActionAlertDialogue(message?: string, titre?: string) {
     let finalMessage = 'Confirmer?'
     if (message) {
       finalMessage = message;
     }
-    const dialogRef = this.dialog.open(DialogConfirmActionComponent, {
+    const dialogRef = this.dialog.open(DialogMessageOkComponent, {
       data: finalMessage,
       width: '300px',
       // height: '100px'

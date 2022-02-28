@@ -1,4 +1,6 @@
-<p>Email ou Mot de passe erroner</p>
-<div mat-dialog-actions>
-    <button mat-button mat-dialog-close (click)="annulAction() ">Close</button>
+<div *ngIf="connexion">
+    <p>Email ou Mot de passe incorrect</p>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close (click)="annulAction() ">Close</button>
+    </div>
 </div>

@@ -1,6 +1,10 @@
 <div>
     <mat-stepper #stepper>
         <form [formGroup]="firstFormGroup">
+
+
+
+
             <mat-step [stepControl]="secondFormGroup1" errorMessage="Donnees imcomplet">
                 <ng-template matStepLabel>Vos cordonnees</ng-template>
                 <div class="form-group">
@@ -38,7 +42,7 @@
                 <div class="form-group">
                     <label> Tel * </label>
                     <input type="tel" class="form-control" [formControl]="tel"
-                        [ngClass]="{'is-invalid':submitted && f.tel.errors}" placeholder="telephone">
+                        [ngClass]="{'is-invalid':submitted && f.tel.errors}" placeholder="telephone:699919990">
 
                     <div *ngIf=" submitted &&f.tel.errors" class="invalid-feedback">
                         <div *ngIf="f.tel.errors.required">Veuillez renseigner le Votre numero </div>
@@ -54,7 +58,6 @@
                 </div>
                 <div *ngIf="testModif" style="text-align:center">
                     <button (click)="editeDemande()" class="btn btn-primary btn-lg">Modifier</button>
-                    <button class="btn btn-success btn-lg">Soumetre</button>
                     <button (click)="annuler()" class="btn btn-warning btn-lg">Annuler</button>
                 </div>
 
@@ -112,7 +115,6 @@
                 </div>
                 <div *ngIf="testModif" style="text-align:center">
                     <button (click)="editeDemande()" class="btn btn-primary btn-lg">Modifier</button>
-                    <button class="btn btn-success btn-lg">Soumetre</button>
                     <button (click)="annuler()" class="btn btn-warning btn-lg">Annuler</button>
                 </div>
 
@@ -134,7 +136,8 @@
                 <div class="form-group">
                     <label> adresse complet * </label>
                     <input type="text" class="form-control" [formControl]="adresseComp"
-                        [ngClass]="{'is-invalid':submitted && f.adresseComp.errors}" placeholder="votre complet">
+                        [ngClass]="{'is-invalid':submitted && f.adresseComp.errors}"
+                        placeholder="Votre quatier: Akwa Rue Silvanie">
 
                     <div *ngIf=" submitted && f.adresseComp.errors" class="invalid-feedback">
                         <div *ngIf="f.adresseComp.errors.required">Veuillez renseigner le Votre complet</div>
@@ -153,7 +156,6 @@
                 </div>
                 <div *ngIf="testModif" style="text-align:center">
                     <button (click)="editeDemande()" class="btn btn-primary btn-lg">Modifier</button>
-                    <button class="btn btn-success btn-lg">Soumetre</button>
                     <button (click)="annuler()" class="btn btn-warning btn-lg">Annuler</button>
                 </div>
 
@@ -193,7 +195,6 @@
                 </div>
                 <div *ngIf="testEnregis" style="text-align:center">
                     <button type="submit" (click)="addDemande()" class="btn btn-primary btn-lg">Enregistrer</button>
-                    <button class="btn btn-success btn-lg">Soumetre</button>
 
                     <button type="submit" (click)="onReset()" class="btn btn-warning btn-lg">Tout Annuler</button>
 
@@ -209,5 +210,7 @@
         </form>
 
     </mat-stepper>
+
+
 
 </div>

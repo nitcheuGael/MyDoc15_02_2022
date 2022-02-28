@@ -7,29 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogoHeaderComponent implements OnInit {
 
-  listeDonnee: any;
-  nom = ''
-  prenom = ''
-  email = ''
-  tel = ''
-  typedoc = ''
-  villeRetrait = ''
-  adresseComp = ''
-  commentaire = ''
-  ville = ''
-  adresseRetrait = ''
-  idDemande: any
+  /*  listeDonnee: any;
+   nom = ''
+   prenom = ''
+   email = ''
+   tel = ''
+   typedoc = ''
+   villeRetrait = ''
+   adresseComp = ''
+   commentaire = ''
+   ville = ''
+   adresseRetrait = ''
+   idDemande: any */
 
 
 
   constructor() { }
 
   ngOnInit(): void {
-    this.afficheDemande()
+
   }
 
 
-  afficheDemande() {
+  /* afficheDemande() {
     this.listeDonnee = JSON.parse(localStorage.getItem('afficheDemande') || '')
     this.nom = this.listeDonnee.nom
     this.prenom = this.listeDonnee.prenom
@@ -45,7 +45,7 @@ export class DialogoHeaderComponent implements OnInit {
 
     localStorage.removeItem('afficheDemande')
 
-  }
+  } */
 
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog',
@@ -7,9 +7,12 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
+  demande = false
+  connexion = true
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
+    public dialog: MatDialog
 
   ) { }
 
@@ -18,6 +21,12 @@ export class DialogComponent implements OnInit {
 
   annulAction() {
     this.dialogRef.close(false);
+  }
+
+  openDialogs() {
+    this.demande = true
+    this.connexion = false
+    this.dialog.open(DialogComponent);
   }
 }
 

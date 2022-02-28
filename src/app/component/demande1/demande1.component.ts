@@ -5,9 +5,14 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Constante } from 'src/app/entite/constante';
 import { demande } from 'src/app/entite/demande';
+import { DialogConfirmService } from 'src/app/service/dialog-confirm.service';
 import { DialogConfirmeService } from 'src/app/service/Dialog/dialog-confirme.service';
 import { ServiceBdService } from 'src/app/service/service-bd.service';
+import { MailService } from 'src/app/service/smsMail/mail.service';
+
+
 
 
 @Component({
@@ -55,6 +60,9 @@ export class Demande1Component implements OnInit {
     private router: Router,
     private toast: ToastrService,
     private formBuilder: FormBuilder,
+    public serviceMailSms: MailService,
+
+    private message_confirme: DialogConfirmService
 
 
   ) { }
@@ -199,7 +207,7 @@ export class Demande1Component implements OnInit {
 
       if (!this.firstFormGroup.invalid) {
         //PREMIERE REMPLISSAGE AYANT TOUT REMPLIR
-        this.dialogoService.confirmActionAlertDialogue('Voullez vous vraiment enregistrer cette demande? ').then(result => {
+        this.dialogoService.confirmActionAlertDialogue('Voullez vous enregistrer cette demande? ').then(result => {
 
           if (result) {
             if (this.id != null) {
@@ -210,19 +218,41 @@ export class Demande1Component implements OnInit {
 
               this.ServiceBd.addDemande(demandelist).then((data: any) => {
                 this.idDemandeRecente = data.id
-                this.toast.info("demande enregistres avec succes")
                 this.submitted = false
                 this.firstFormGroup.reset();
+                // this.dialog.open()
                 this.dialogoService.confirmActionAlertDialogue('Souhaitez vous soumettres directement cette demande?').then((result => {
 
                   this.ServiceBd.editstatut(this.idDemandeRecente, this.statutDemanSoum).then((resul => {
                     // DEMANDE SOUMIS AVEC SUCCES
+                    this.message_confirme.confirmActionAlertDialogue('Demande soumis avec succes')
+
+
+                    this.sendMail(this.idDemandeRecente, this.nom?.value, this.prenom?.value)
+                    this.sendSms(this.idDemandeRecente, this.nom?.value, this.prenom?.value)
+                    this.sendSmsClient(this.tel?.value, this.idDemandeRecente)
+
+
                   })).catch(err => {
                     // ECHEC DE  SOUMISSION DE LA DEMANDE 
+                    this.message_confirme.confirmActionAlertDialogue('Echec de soumission de la demande')
+                    this.message_confirme.confirmActionAlertDialogue('Demande enregistres avec succes')
                   })
                   // apres soumision il est renvoyer au dashbord
                   this.router.navigate(['/dashboard']);
-                }))
+                })).catch(err => {
+                  this.toast.info("Demande enregistres avec succes")
+                  this.message_confirme.confirmActionAlertDialogue('Demande enregistres avec succes')
+
+                })
+
+
+
+              }).catch(erreur => {
+                this.toast.error('Erreur d enregistrement de la demande', 'Enregistrement', {
+                  timeOut: 3000,
+                })
+                this.message_confirme.confirmActionAlertDialogue('Echec de l enregistrement de la demande')
 
               })
               this.submitted = false
@@ -236,31 +266,45 @@ export class Demande1Component implements OnInit {
         });
       } else {
         //PREMIERE REMPLIRE MAIS PAS TOUS LES ELLEMENTS REMPLIRE
-        this.statut = this.statutDemanI
-        this.dialogoService.confirmActionAlertDialogue('Voullez  enregistrer cette demande? ').then(result => {
+        if (!this.nom?.invalid && this.nom?.value !== ' ' && this.nom?.value !== '  ' && this.nom?.value !== '   ') {
+          this.statut = this.statutDemanI
+          this.dialogoService.confirmActionAlertDialogue('Voullez  enregistrer cette demande? ').then(result => {
 
-          if (result) {
-            if (this.id != null) {
+            if (result) {
+              if (this.id != null) {
 
-              var demandelist = new demande(this.nom?.value, this.prenom?.value, this.email?.value
-                , this.tel?.value, this.id, this.typedoc?.value, this.statut, this.adresseRetrait?.value, this.villeRetrait?.value,
-                this.adresseComp?.value, this.ville?.value, this.photo?.value, 'contra', this.commentaire?.value)
+                var demandelist = new demande(this.nom?.value, this.prenom?.value, this.email?.value
+                  , this.tel?.value, this.id, this.typedoc?.value, this.statut, this.adresseRetrait?.value, this.villeRetrait?.value,
+                  this.adresseComp?.value, this.ville?.value, this.photo?.value, 'contra', this.commentaire?.value)
 
-              this.ServiceBd.addDemande(demandelist).then((data: any) => {
-                this.toast.info("demande enregistres avec succes")
+                this.ServiceBd.addDemande(demandelist).then((data: any) => {
+                  this.toast.info("Demande enregistres avec succes")
+                  this.message_confirme.confirmActionAlertDialogue('Demande enregistres avec succes')
+
+                  this.submitted = false
+
+
+
+                }).catch(error => {
+                  this.message_confirme.confirmActionAlertDialogue('Echec d enregistres ')
+
+                })
                 this.submitted = false
 
+              } else {
 
+                this.message_confirme.confirmActionAlertDialogue('Utilisateur inconnue')
 
-              }).catch(error => {
-              })
-              this.submitted = false
-
-            } else {
-              this.toast.warning('Utilisateur inconnue')
+              }
             }
-          }
-        });
+          });
+
+        } else {
+          this.toast.error('Veuillez renseigner au moins le nom et prenom', 'erreur d enregistrement')
+          this.message_confirme.confirmActionAlertDialogue('Veuillez renseigner au moins le nom et prenom')
+
+        }
+
 
       }
 
@@ -302,10 +346,17 @@ export class Demande1Component implements OnInit {
               this.dialogoService.confirmActionAlertDialogue('Souhaitez vous soumettres directement cette demande?').then((result => {
 
                 //SOUMISSION DE LA DEMANDE : IDDEMANDE 
-                this.ServiceBd.editstatut(this.id, this.statutDemanSoum).then((resul => {
+                this.ServiceBd.editstatut(this.idDemandeI, this.statutDemanSoum).then((resul => {
                   // DEMANDE SOUMIS AVEC SUCCES
+                  this.message_confirme.confirmActionAlertDialogue('Demande soumis avec succes')
+                  this.sendMail(this.idDemandeI, this.nom?.value, this.prenom?.value)
+                  this.sendSms(this.idDemandeI, this.nom?.value, this.prenom?.value)
+                  this.sendSmsClient(this.tel?.value, this.idDemandeI)
+
                 })).catch(err => {
                   // ECHEC DE  SOUMISSION DE LA DEMANDE 
+                  this.message_confirme.confirmActionAlertDialogue('Echec de soumission de la demande')
+
                 })
                 // apres soumision il est renvoyer au dashbord
                 this.router.navigate(['/dashboard']);
@@ -320,22 +371,32 @@ export class Demande1Component implements OnInit {
         });
       } else {
         // AUTRES REMPLISSAGE AVEC LES ELEMENTS PAS CORRECTEMENT REMPLIR
+        console.log('Valeure de la console ', this.nom?.value !== ' ')
+        if (!this.nom?.invalid && this.nom?.value !== ' ' && this.nom?.value !== '  ' && this.nom?.value !== '   ') {
 
-        this.statut = this.statutDemanI
-        this.dialogoService.confirmActionAlertDialogue('Voullez vous vraiment modifier cette demande? ').then(result => {
-          if (result) {
-            var demandelist = new demande(this.nom?.value, this.prenom?.value, this.email?.value
-              , this.tel?.value, this.id, this.typedoc?.value, this.statut, this.adresseRetrait?.value, this.villeRetrait?.value,
-              this.adresseComp?.value, this.ville?.value, this.photo?.value, 'contra', this.commentaire?.value)
-            this.ServiceBd.editAllDemande(demandelist, this.idDemandeI).then((valut) => {
-              this.toast.info("demande Modifier avec succes")
+          this.statut = this.statutDemanI
+          this.dialogoService.confirmActionAlertDialogue('Voullez vous vraiment modifier cette demande? ').then(result => {
+            if (result) {
+              var demandelist = new demande(this.nom?.value, this.prenom?.value, this.email?.value
+                , this.tel?.value, this.id, this.typedoc?.value, this.statut, this.adresseRetrait?.value, this.villeRetrait?.value,
+                this.adresseComp?.value, this.ville?.value, this.photo?.value, 'contra', this.commentaire?.value)
+              this.ServiceBd.editAllDemande(demandelist, this.idDemandeI).then((valut) => {
+                this.toast.info("demande Modifier avec succes")
+                this.message_confirme.confirmActionAlertDialogue('Demande Modifier avec succes')
 
-            }).catch((erreur => {
-            }))
+              }).catch((erreur => {
+                this.message_confirme.confirmActionAlertDialogue('Echec d enregistrement de la demande')
+
+              }))
 
 
-          }
-        });
+            }
+          });
+        } else {
+          this.toast.error('Veuillez renseigner au moins le nom et prenom', 'erreur d enregistrement')
+          this.message_confirme.confirmActionAlertDialogue('Veuillez renseigner au moins le nom et prenom')
+
+        }
       }
 
     }
@@ -380,13 +441,33 @@ export class Demande1Component implements OnInit {
             this.adresseComp?.value, this.ville?.value, this.photo?.value, 'contra', this.commentaire?.value)
           this.ServiceBd.editAllDemande(demandelist, this.idDemande).then((valut) => {
             this.toast.info("demande Modifier avec succes")
-            this.router.navigate(['/dashboard']);
+            this.message_confirme.confirmActionAlertDialogue('Demande Modifier avec succes')
+
+
+            this.dialogoService.confirmActionAlertDialogue('Souhaitez vous soumettres directement cette demande?').then((result => {
+
+              //SOUMISSION DE LA DEMANDE : IDDEMANDE 
+              this.ServiceBd.editstatut(this.idDemande, this.statutDemanSoum).then((resul => {
+                this.sendMail(this.idDemande, this.nom?.value, this.prenom?.value)
+                this.sendSms(this.idDemande, this.nom?.value, this.prenom?.value)
+                this.sendSmsClient(this.tel?.value, this.idDemande)
+                // DEMANDE SOUMIS AVEC SUCCES
+              })).catch(err => {
+                // ECHEC DE  SOUMISSION DE LA DEMANDE 
+              })
+              // apres soumision il est renvoyer au dashbord
+              this.router.navigate(['/dashboard']);
+            })).catch(erreure => {
+
+            })
           }).catch((erreur => {
           }))
         }
       });
     } else {
-      window.alert('Veuillez renseigner tous les champs oubligatoire')
+      // window.alert('Veuillez renseigner tous les champs oubligatoire')
+      this.message_confirme.confirmActionAlertDialogue('Veuillez renseigner tous les champs oubligatoire')
+
     }
   }
 
@@ -434,8 +515,45 @@ export class Demande1Component implements OnInit {
         }
       });
     } else {
-      window.alert('Veuillez renseigner tous les champs oubligatoire')
+      // window.alert('Veuillez renseigner tous les champs oubligatoire')
+      this.message_confirme.confirmActionAlertDialogue('Veuillez renseigner tous les champs oubligatoire')
+
     }
   }
+
+
+
+  sendMail(identifiantDemande: string, nomClient: string, prenomClient: string) {
+    var email = Constante.emailNotification;
+    var objt = "Demande";
+    var message = "La demande numero " + ' ' + identifiantDemande + ' de ' + nomClient + '  ' + prenomClient + ' a ete soumise ';
+    var entete = 'From: Mydoc@mydoc.cm'
+    this.serviceMailSms.sendEmail(email, objt, message, entete).then((projet) => {
+      console.log('Envoi du mail avec succes', projet)
+
+    }).catch(rejet => {
+      console.log('erreur d envoi du mail ', rejet)
+        ;
+    })
+  }
+  sendSms(identifiantDemande: string, nomClient: string, prenomClient: string) {
+    this.serviceMailSms.sendSms("MyDoc", "00237678424125", "La demande numero " + ' ' + identifiantDemande + ' de ' + nomClient + '  ' + prenomClient + ' a ete soumise ').then((projet) => {
+      console.log('envoi de sms god 00237698893924', projet)
+
+    }).catch(rejects => {
+      console.log('erreur d envoi de sms ', rejects)
+    })
+  }
+
+  sendSmsClient(numeroClient: string, identifiantDemande: string) {
+    this.serviceMailSms.sendSms("MyDoc", "00237" + numeroClient, " Votre demande   ID: " + identifiantDemande + " a ete bien soumise").then((projet) => {
+      console.log('envoi de sms god ', projet)
+
+    }).catch(rejects => {
+      console.log('erreur d envoi de sms ', rejects)
+    })
+  }
+
+
 
 }

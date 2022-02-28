@@ -59,6 +59,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelSpeed: 1,
@@ -81,6 +82,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DialogConfirmActionComponent,
     CodeComponent,
     MenuComponent,
+
 
 
 
