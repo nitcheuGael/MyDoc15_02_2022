@@ -56,6 +56,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MenuComponent } from './menu/menu.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConfirmDialog1Component } from './Dialog/confirm-dialog1/confirm-dialog1.component';
 
 
 
@@ -82,6 +83,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DialogConfirmActionComponent,
     CodeComponent,
     MenuComponent,
+    ConfirmDialog1Component,
 
 
 

@@ -1,12 +1,6 @@
-<!-- <div class="form-container">
-    <button (click)="loginGoogle()" class="google">Login or Signup With Google</button>
-    <button routerLink="/email-login" class="email">Email</button>
-    <a routerLink="/signup" routerLinkActive="active" class="create-account-txt">No account? <strong>Create one
-            here</strong></a>
-</div> -->
 <!-- source du temnplate: https://codepen.io/Rh2o/pen/yLgxJoG -->
 <h2>Mydoc</h2>
-<div class="container" id="container">
+<div class="container " id="container">
     <div class="form-container sign-up-container">
         <form action="#">
             <h1>Create Account</h1>
@@ -16,7 +10,7 @@
                 <!-- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> -->
             </div>
             <div id='signUp'>
-                <span>or use your email for registration</span>
+                <span>Utilisez votre adresse mail pour vous connecter</span>
                 <input type="text" placeholder="Name" />
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" required />
@@ -33,7 +27,7 @@
                 <button (click)="loginGoogle()" class="social"><i class="fab fa-google-plus-g"></i></button>
                 <!--  <button class="social"><i class="fab fa-linkedin-in"></i></button> -->
             </div>
-            <span>or use your account</span>
+            <span>Vous conneter avec votre adresse mail</span>
             <div class="form-group">
                 <input type="email" class="form-control" placeholder="Email" [formControl]="email" required />
 
@@ -45,7 +39,7 @@
             <button (click)="connexion()">Connecter</button>
 
             <!--  <a href="http://localhost:49273/connexion" (click)="resetPass()"></a> -->
-            <button (click)="resetPass()" class="couleur">Forgot your password?</button>
+            <button (click)="resetPass()" class="couleur">Mot de passe oublié</button>
             <button (click)="premutationDom2()" class="couleur">Creer compte avec Email</button>
             <button (click)="premutationDom3()" class="couleur">Se connecter via Tel </button>
 
@@ -64,7 +58,7 @@
                 <!--  <button class="social"><i class="fab fa-linkedin-in"></i></button> -->
             </div>
 
-            <span>or use your email for registration</span>
+            <span>Utilisez votre adresse mail pour vous connecter</span>
             <!--   <div class="form-group">
 
                 <input type="text" class="form-control" placeholder="Name" [formControl]="nom" required />
@@ -105,11 +99,22 @@
 
 
     </div>
-    <div class="overlay-container">
+    <div class="overlay-container ">
         <div class="overlay">
             <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
+
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Bienvenu sur Mydoc Cameroun</h1>
+
+                <p>
+                    <<<= Veuillez vous conneter pour beneficier de notre service Ultra Rapide </p>
+                        <a href="https://mydoc.cm/"> <button class="couleur1">Accueil</button></a>
+
             </div>
         </div>
+
     </div>
+
+
+</div>

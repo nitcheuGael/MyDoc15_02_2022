@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #f6f5f7;
+  background: #f5f6f7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +42,14 @@ a {
 }
 
 .couleur {
-  background-color: #ffffff;
+  background-color: #e8e8e8;
+
+  color: rgb(5, 82, 22);
+  border: #ffffff;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.couleur1 {
+  background-color: #df601b;
   color: rgb(5, 82, 22);
   border: #ffffff;
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -74,7 +81,7 @@ button.ghost {
 }
 
 form {
-  background-color: #ffffff;
+  background-color: #e8e8e8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +100,7 @@ input {
 }
 
 .container {
-  background-color: #fff;
+  background-color: rgb(66, 64, 189);
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
@@ -164,13 +171,13 @@ input {
 }
 
 .overlay {
-  background: #ff416c;
-  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: #e1ec0d;
+  background: -webkit-linear-gradient(to right, #f3e306, #ff416c);
+  background: linear-gradient(to right, #f4f809, #d64d04);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
-  color: #ffffff;
+  color: #000000;
   position: relative;
   left: -100%;
   height: 100%;
@@ -227,7 +234,7 @@ input {
 }
 
 .social-container a {
-  border: 1px solid #dddddd;
+  border: 1px solid #ffffff;
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;

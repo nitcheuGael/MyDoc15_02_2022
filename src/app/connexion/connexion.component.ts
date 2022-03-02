@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 import { FirebaseApp } from '@angular/fire';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../Dialog/dialog/dialog.component';
 import firebase from 'firebase/app';
 import { MailService } from '../service/smsMail/mail.service';
 import { Constante } from '../entite/constante';
 import { DialogConfirmService } from '../service/dialog-confirm.service';
+import { ConfirmDialog1Component, ConfirmDialogModel } from '../Dialog/confirm-dialog1/confirm-dialog1.component';
 
 
 
@@ -41,6 +41,7 @@ export class ConnexionComponent implements OnInit {
     | undefined
 
   // emailh = new FormControl('', [Validators.required, Validators.email]);
+  result: string = '';
 
 
   constructor
@@ -54,7 +55,6 @@ export class ConnexionComponent implements OnInit {
       private ngZone: NgZone,
       public serviceMailSms: MailService,
       private message_confirme: DialogConfirmService
-
 
 
     ) { }
@@ -231,4 +231,21 @@ export class ConnexionComponent implements OnInit {
       });
   }
 
+  /*  confirmDialog(): void {
+     const message = `Do you want to save this file?`;
+ 
+     const dialogData = new ConfirmDialogModel("File Saving Message", message);
+ 
+     const dialogRef = this.dialog.open(ConfirmDialog1Component, {
+       maxWidth: "600px",
+       data: dialogData
+     });
+ 
+     dialogRef.afterClosed().subscribe(dialogResult => {
+       this.result = dialogResult;
+     });
+   } */
 }
+
+
+
