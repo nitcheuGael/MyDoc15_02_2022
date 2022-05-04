@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseApp } from '@angular/fire';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Constante } from '../entite/constante';
 import { AuthService } from '../service/auth.service';
@@ -32,7 +32,8 @@ export class LandingComponent implements OnInit {
     private dialogoService: DialogConfirmeService,
     private router: Router,
     public serviceMailSms: MailService,
-    private message_confirme: DialogConfirmService
+    private message_confirme: DialogConfirmService,
+    private formBuilder: FormBuilder,
 
 
 
@@ -40,8 +41,8 @@ export class LandingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.initialisationformulair()
-
+    // this.initialisationformulair()
+    this.init1();
     this.auth.auth().onAuthStateChanged((user) => {
       if (user) {
         this.testbutonD = true
@@ -96,32 +97,44 @@ export class LandingComponent implements OnInit {
   /* Constante.emailNotification */
   sendMail() {
 
+
     var email = Constante.emailNotification + ',' + 'gaelnitcheufatal@gmail.com' + ',' + this.email?.value;
     var email1 = '' + this.email?.value;
     var objt = '' + this.sujet?.value;
     var message = 'Nom :  ' + this.nom?.value + '    Email:   ' + email1 + '     Message:   ' + this.message?.value;
     var entete = 'From: Mydoc@mydoc.cm'
-    this.serviceMailSms.sendEmail(email, objt, message, entete).then((projet) => {
 
-    }).catch(rejet => {
-      this.message_confirme.confirmActionAlertDialogue('Votre message sera pris en compte. Merci de nous avoir contacté.');
-      this.initialisationformulair()
-    })
+
+    if (!this.firstFormGroup.invalid) {
+      this.serviceMailSms.sendEmail(email, objt, message, entete).then((projet) => {
+      }).catch(rejet => {
+        this.message_confirme.confirmActionAlertDialogue('Votre message sera pris en compte. Merci de nous avoir contacté.');
+        this.init1()
+      })
+
+    } else {
+      this.message_confirme.confirmActionAlertDialogue('Veuillez Remplir tous les champs oubligatoire');
+    }
+
   }
 
-  initialisationformulair() {
-    //j'initialise le formulaire au demarage de l'application pour eviter certain burg
-    this.firstFormGroup = new FormGroup({
-      nom: new FormControl(''),
-      sujet: new FormControl(''),
-      email: new FormControl(''),
-      message: new FormControl(''),
-
+  init1() {
+    this.firstFormGroup = this.formBuilder.group({
+      nom: ['', Validators.required],
+      email: ['', Validators.email],
+      message: ['', Validators.required],
+      sujet: [''],
 
     })
+
   }
-
-
+  openNewTab() {
+    window.open("https://youtu.be/-XmEg4B4DSY");
+  }
+  openNewTab1(lien: string) {
+    window.open(lien);
+  }
 }
+
 
 

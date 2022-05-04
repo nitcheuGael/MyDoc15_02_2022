@@ -37,19 +37,19 @@
 
                         <button mat-menu-item>Contact</button>
                     </a>
-                    <a href="#organisations">
+                    <a href="#condition">
 
                         <button mat-menu-item>Condition générale d'utilisation</button>
                     </a>
-                    <a href="#contact">
+                    <a href="#formulaire">
 
 
-                        <button mat-menu-item>Historique</button>
+                        <button mat-menu-item>Formulaire</button>
                     </a>
 
                 </mat-menu>
 
-                <button mat-button [matMenuTriggerFor]="beforeMenu">Blog</button>
+                <!--  <button mat-button [matMenuTriggerFor]="beforeMenu">Ca</button>
                 <mat-menu #beforeMenu="matMenu" xPosition="before">
                     <a href="#contact">
                         <button mat-menu-item>Experience</button>
@@ -61,7 +61,7 @@
                     <a href="#">
                         <button mat-menu-item>Categories</button>
                     </a>
-                </mat-menu>
+                </mat-menu> -->
                 <a *ngIf="testbutonC"><button class="getstarted scrollto skin5" [routerLink]="['/','loading']">
                         <b> Se
                             Connecter</b>
@@ -106,7 +106,7 @@
 
                             <button mat-menu-item>Contact</button>
                         </a>
-                        <a (click)="sidenav.toggle()" href="#organisations">
+                        <a (click)="sidenav.toggle()" href="#CGU">
 
                             <button mat-menu-item>Condition générale d'utilisation</button>
                         </a>
@@ -121,7 +121,7 @@
                 </a>
 
 
-                <a href="#" mat-list-item>
+                <!--  <a href="#" mat-list-item>
                     <mat-icon>library_books</mat-icon>
                     <button (click)="sidenav.toggle()" mat-button [matMenuTriggerFor]="beforeMenu">Blog</button>
                     <mat-menu #beforeMenu="matMenu" xPosition="before">
@@ -137,7 +137,7 @@
                         </a>
                     </mat-menu>
 
-                </a>
+                </a> -->
                 <a *ngIf="testbutonD"><button class="getstarted scrollto skin5" (click)="logOut()"> <b>
                             Se Deconnecter</b>
                     </button></a>
@@ -167,8 +167,13 @@
                                     <b> Se Deconnecter</b>
                                 </button>
 
-                                <a href="https://youtu.be/-XmEg4B4DSY" class="glightbox btn-watch-video"><i
-                                        class="bi bi-play-circle"></i><span>Voire la Video</span></a>
+                                <a (click)="openNewTab()" class="glightbox btn-watch-video"><i
+                                        class="bi bi-play-circle"></i><span>Voire la
+                                        Video</span></a>
+
+
+
+
                             </div>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -227,7 +232,7 @@
 
 
             <!-- ======= About Us Section ======= -->
-            <section id="about" class="about">
+            <section id="about" class="about coleure1">
                 <div class="container" data-aos="fade-up">
 
                     <div class="section-title">
@@ -240,7 +245,6 @@
                                 MyDoc.cm a pour mission de mettre à la disposition des Camerounais leurs
                                 documents administratifs et officiels de manière Simple, Rapide et Sécurisé.
                             </p>
-
                         </div>
 
                     </div>
@@ -256,45 +260,42 @@
                             <img src="assets/landing/img/skills.png" class="img-fluid" alt="">
                         </div>
                         <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-                            <h2>Voluptatem dignissimos provident quasi corporis voluptates</h2>
+                            <h2>Taux de demande des documents part type sur notre plateforme</h2>
                             <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore
-                                magna aliqua.
+                                Depuis le lancement officiel de notre site, nous avons obtenus des taux important
                             </p>
 
                             <div class="skills-content">
 
                                 <div class="progress">
-                                    <span class="skill">HTML <i class="val">100%</i></span>
+                                    <span class="skill">EXTRAIT D'ACTE DE NAISSANCE <i class="val">87%</i></span>
                                     <div class="progress-bar-wrap">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="100"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                            aria-valuemin="87" aria-valuemax="100" style="width: 87%"></div>
                                     </div>
                                 </div>
 
                                 <div class="progress">
-                                    <span class="skill">CSS <i class="val">90%</i></span>
+                                    <span class="skill">CASIER JUDICIAIRE <i class="val">80%</i></span>
                                     <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="90"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="100"
+                                            aria-valuemin="80" aria-valuemax="100" style="width: 80%"></div>
                                     </div>
                                 </div>
 
                                 <div class="progress">
-                                    <span class="skill">JavaScript <i class="val">75%</i></span>
+                                    <span class="skill">Relever du Baccalaureat <i class="val">77%</i></span>
                                     <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="75"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="100"
+                                            aria-valuemin="77" aria-valuemax="100" style="width: 77%"></div>
                                     </div>
                                 </div>
 
                                 <div class="progress">
-                                    <span class="skill">Photoshop <i class="val">55%</i></span>
+                                    <span class="skill">Original CNI <i class="val">65%</i></span>
                                     <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="55"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="100"
+                                            aria-valuemin="650" aria-valuemax="1000" style="width: 65%"></div>
                                     </div>
                                 </div>
 
@@ -312,11 +313,20 @@
 
                     <div class="section-title">
                         <h2>Services</h2>
-                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum
-                            quidem. Sit sint
-                            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                            ea. Quia
-                            fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        <p>Nous avons diverses activités entre autres:</p>
+                        <p>Facilitation d'obtention de vos documents dans toutes les villes du Cameroun;</p>
+                        <p>Solution de communication via les bulks SMS, API et la base de données de votre cible idéal;
+                        </p>
+                        <p>Etude de conception relative à la création de vidéos d’entreprises;</p>
+                        <p>Création de vidéos institutionnelles</p>
+                        <p>Vente des noms de domaines et Hébergement</p>
+                        <p>Agence Conseil en Communication</p>
+                        <p>Agence Conseil en Services de Communication Eletctroniques</p>
+
+
+
+
+
                     </div>
 
                     <div class="row">
@@ -324,8 +334,9 @@
                             data-aos-delay="100">
                             <div class="icon-box">
                                 <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                                <h4><a href="">Lorem Ipsum</a></h4>
-                                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                                <h4><a (click)="openNewTab1('https://ekotech.cm/')" href="#services">Ekotech.cm</a></h4>
+                                <p>EKOTECH fournit des solutions qui aident les entreprises
+                                    à atteindre leurs clients de la manière la plus efficace possible.</p>
                             </div>
                         </div>
 
@@ -333,8 +344,11 @@
                             data-aos-delay="200">
                             <div class="icon-box">
                                 <div class="icon"><i class="bx bx-file"></i></div>
-                                <h4><a href="">Sed ut perspici</a></h4>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                                <h4><a (click)="openNewTab1('https://Africaventurelab.com')"
+                                        href="#services">Africaventurelab.com</a>
+                                </h4>
+                                <p>Africa Venture Lab est une agence innovante qui a pour mission de renforcer
+                                    l'entrepreneur africain</p>
                             </div>
                         </div>
 
@@ -342,8 +356,9 @@
                             data-aos-delay="300">
                             <div class="icon-box">
                                 <div class="icon"><i class="bx bx-tachometer"></i></div>
-                                <h4><a href="">Magni Dolores</a></h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                                <h4><a (click)="openNewTab1('https://Cible.ekotech.cm')"
+                                        href="#services">Cible.ekotech.cm </a></h4>
+                                <p>plateforme d'envoi des bulks SMS</p>
                             </div>
                         </div>
 
@@ -351,8 +366,9 @@
                             data-aos-delay="400">
                             <div class="icon-box">
                                 <div class="icon"><i class="bx bx-layer"></i></div>
-                                <h4><a href="">Nemo Enim</a></h4>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                                <h4><a (click)="openNewTab1('https://ekomarkethub.com')"
+                                        href="#services">ekomarkethub.com</a></h4>
+                                <p>Eko Market Hub est le centre commercial en ligne le plus ambitieux du Cameroun</p>
                             </div>
                         </div>
 
@@ -367,15 +383,11 @@
 
                     <div class="row">
                         <div class="col-lg-9 text-center text-lg-start">
-                            <h3>Call To Action</h3>
-                            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                deserunt
-                                mollit anim id est laborum.</p>
+                            <h3>Connectez-vous dès aujourd’hui </h3>
+                            <p> Connectez-vous sur notre plateforme et bénéficiez de…</p>
                         </div>
                         <div class="col-lg-3 cta-btn-container text-center">
-                            <a class="cta-btn align-middle" href="#">Call To Action</a>
+                            <a class="cta-btn align-middle" href="#contact">Connectez-vous dès aujourd’hui </a>
                         </div>
                     </div>
 
@@ -387,149 +399,169 @@
                 <div class="container" data-aos="fade-up">
 
                     <div class="section-title">
-                        <h2>Portfolio</h2>
-                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum
-                            quidem. Sit sint
-                            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                            ea. Quia
-                            fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        <h2>MyDoc</h2>
+                        <p>Voici les types de documents que vous pouvez obtenir
+                            sur MyDoc.cm</p>
                     </div>
 
                     <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up"
                         data-aos-delay="100">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">App</li>
-                        <li data-filter=".filter-card">Card</li>
-                        <li data-filter=".filter-web">Web</li>
+                        <li data-filter="*" class="filter-active">tous les documents</li>
+                        <li data-filter=".filter-app">Les Actes</li>
+                        <li data-filter=".filter-card">Les Diploment</li>
+                        <li data-filter=".filter-web">divers</li>
                     </ul>
 
                     <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
+
+
                         <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/portfolio-1.jpg"
-                                    class="img-fluid" alt="">
+                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/acte de naissance.jfif"
+                                    class="img-fluid" alt="formulaire copie acte mariage">
                             </div>
                             <div class="portfolio-info">
-                                <h4>App 1</h4>
-                                <p>App</p>
-                                <a href="assets/landing/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                <h4>Acte de naissance</h4>
+                                <p>Birth certificate</p>
+                                <a (click)="openNewTab1('assets/landing/img/portfolio/acte de naissance.jfif')"
+                                    href="#portfolio" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link" title="Acte de naissance"><i
+                                        class="bx bx-plus"></i></a>
+                                <a href="#portfolio" class="details-link" title="Plus de  Details"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                            <div class="portfolio-img"><img
+                                    src="assets/landing/img/portfolio/formulaire copie acte mariage.jpg"
+                                    class="img-fluid" alt="copie acte mariage">
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Acte de mariage</h4>
+                                <p>Marriage certificate</p>
+                                <a (click)="openNewTab1('assets/landing/img/portfolio/formulaire copie acte mariage.jpg')"
+                                    href="#portfolio" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link" title="Acte de mariage"><i
+                                        class="bx bx-plus"></i></a>
+                                <a href="#portfolio" class="details-link" title="Plus de Details"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/copie acte de décès.jfif"
+                                    class="img-fluid" alt="copie acte de décès">
+                            </div>
+                            <div class="portfolio-info">
+                                <h4> Acte de décès</h4>
+                                <p> Death certificate</p>
+                                <a (click)="openNewTab1('assets/landing/img/portfolio/copie acte de décès.jfif')"
+                                    href="#portfolio" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link" title="Acte de décès"><i
+                                        class="bx bx-plus"></i></a>
+                                <a href="#portfolio" class="details-link" title="Plus de Details"><i
                                         class="bx bx-link"></i></a>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid"
+                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/Passport.jfif"
+                                    class="img-fluid" alt="passport">
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Passport</h4>
+                                <p>passport</p>
+                                <a (click)="openNewTab1('assets/landing/img/portfolio/Passport.jfif')" href="#portfolio"
+                                    data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"
+                                    title="passport"><i class="bx bx-plus"></i></a>
+                                <a href="#portfolio" class="details-link" title="Plus de  Details"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/Diplome de Bac.jfif"
+                                    class="img-fluid" alt="Diplome de Bac">
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Diplome de Bac</h4>
+                                <p>Baccalaureate diploma</p>
+                                <a (click)="openNewTab1('assets/landing//img/portfolio/Diplome de Bac.jfif')"
+                                    href="#portfolio" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link" title="Diplome de Bac"><i
+                                        class="bx bx-plus"></i></a>
+                                <a href="#portfolio" class="details-link" title="plus de Details"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/permis de conduit.jfif"
+                                    class="img-fluid" alt="permis de conduit">
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>permis de conduit</h4>
+                                <p>driving license</p>
+                                <a (click)="openNewTab1('assets/landing/img/portfolio/img/portfolio/permis de conduit.jfif')"
+                                    href="#portfolio" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link" title="permis de conduit"><i
+                                        class="bx bx-plus"></i></a>
+                                <a href="#portfolio" class="details-link" title="Plus de Details"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                            <div class="portfolio-img"><img
+                                    src="assets/landing/img/portfolio/Certificat_d aptitude_professionnelle.jpg"
+                                    class="img-fluid" alt="">
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Certificat d'aptitude professionnelle</h4>
+                                <p>Certificate of professional competence</p>
+                                <a (click)="openNewTab1('assets/landing/img/portfolio/Certificat_d aptitude_professionnelle.jpg')"
+                                    href="#portfolio" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link"
+                                    title="Certificat d'aptitude professionnelle"><i class="bx bx-plus"></i></a>
+                                <a href="#portfolio" class="details-link" title="Plus de  Details"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/Retrait_CNI.jfif"
+                                    class="img-fluid" alt="CNI">
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Retrait CNI</h4>
+                                <p>CNI withdrawal</p>
+                                <a (click)="openNewTab1('assets/landing/img/portfolio/portfolio-8.jpg')"
+                                    href="#portfolio" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link" title="Retrait CNI"><i
+                                        class="bx bx-plus"></i></a>
+                                <a href="#portfolio" class="details-link" title="Plus de Details"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                            <div class="portfolio-img"><img
+                                    src="assets/landing/img/portfolio/Relever de Probatoire.jfif" class="img-fluid"
                                     alt="">
                             </div>
                             <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                                <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                        class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/portfolio-3.jpg"
-                                    class="img-fluid" alt="">
-                            </div>
-                            <div class="portfolio-info">
-                                <h4>App 2</h4>
-                                <p>App</p>
-                                <a href="assets/landing/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                        class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/portfolio-4.jpg"
-                                    class="img-fluid" alt="">
-                            </div>
-                            <div class="portfolio-info">
-                                <h4>Card 2</h4>
-                                <p>Card</p>
-                                <a href="assets/landing//img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link" title="Card 2"><i
+                                <h4>Relever de Probatoire</h4>
+                                <p>Take probation</p>
+                                <a (click)="openNewTab1('assets/landing/img/portfolio/Relever de Probatoire.jfif')"
+                                    href="#portfolio" data-gallery="portfolioGallery"
+                                    class="portfolio-lightbox preview-link" title="Relever de Probatoire"><i
                                         class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                        class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/portfolio-5.jpg"
-                                    class="img-fluid" alt="">
-                            </div>
-                            <div class="portfolio-info">
-                                <h4>Web 2</h4>
-                                <p>Web</p>
-                                <a href="assets/landing/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                        class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/portfolio-6.jpg"
-                                    class="img-fluid" alt="">
-                            </div>
-                            <div class="portfolio-info">
-                                <h4>App 3</h4>
-                                <p>App</p>
-                                <a href="assets/landing/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                        class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/portfolio-7.jpg"
-                                    class="img-fluid" alt="">
-                            </div>
-                            <div class="portfolio-info">
-                                <h4>Card 1</h4>
-                                <p>Card</p>
-                                <a href="assets/landing/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link" title="Card 1"><i
-                                        class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                        class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/portfolio-8.jpg"
-                                    class="img-fluid" alt="">
-                            </div>
-                            <div class="portfolio-info">
-                                <h4>Card 3</h4>
-                                <p>Card</p>
-                                <a href="assets/landing/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link" title="Card 3"><i
-                                        class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                        class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/portfolio-9.jpg"
-                                    class="img-fluid" alt="">
-                            </div>
-                            <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                                <a href="assets/landing/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                <a href="#portfolio" class="details-link" title="Plus de Details"><i
                                         class="bx bx-link"></i></a>
                             </div>
                         </div>
@@ -540,7 +572,7 @@
             </section><!-- End Portfolio Section -->
 
             <!-- ======= Team Section ======= -->
-            <section id="organisation" class="team section-bg">
+            <section id="condition" class="team section-bg">
                 <div class="container" data-aos="fade-up">
 
                     <div class="section-title">
@@ -1068,64 +1100,12 @@
                 <div class="container" data-aos="fade-up">
 
                     <div class="section-title">
-                        <h2>Pricing</h2>
-                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum
-                            quidem. Sit sint
-                            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                            ea. Quia
-                            fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        <h2>Prix</h2>
+                        <p>Le prix d'obtention de vos documents n'est pas homologué, chaque demande à ses spécificités,
+                            le prix est entièrement dépendant des exigences du client ! Connectez-vous
+                            et soumettez une demande et vous recevrez en quelques minutes un devis ou une cotation.</p>
                     </div>
 
-                    <div class="row">
-
-                        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                            <div class="box">
-                                <h3>Free Plan</h3>
-                                <h4><sup>$</sup>0<span>per month</span></h4>
-                                <ul>
-                                    <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                                    <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                                    <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                                    <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa
-                                            ultricies</span></li>
-                                    <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis
-                                            hendrerit</span></li>
-                                </ul>
-                                <a href="#" class="buy-btn">Get Started</a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
-                            <div class="box featured">
-                                <h3>Business Plan</h3>
-                                <h4><sup>$</sup>29<span>per month</span></h4>
-                                <ul>
-                                    <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                                    <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                                    <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                                    <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                                    <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-                                </ul>
-                                <a href="#" class="buy-btn">Get Started</a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-                            <div class="box">
-                                <h3>Developer Plan</h3>
-                                <h4><sup>$</sup>49<span>per month</span></h4>
-                                <ul>
-                                    <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                                    <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                                    <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                                    <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                                    <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-                                </ul>
-                                <a href="#" class="buy-btn">Get Started</a>
-                            </div>
-                        </div>
-
-                    </div>
 
                 </div>
             </section><!-- End Pricing Section -->
@@ -1136,7 +1116,7 @@
                 <div class="container" data-aos="fade-up">
 
                     <div class="section-title">
-                        <h2>Frequently Asked Questions</h2>
+                        <h2>QUESTIONS FRÉQUEMMENT POSÉES</h2>
 
                         <p> Si dans la liste des questions-réponses ci-dessous, vous ne trouvez pas satisfaction
                             n'hésitez
@@ -1378,7 +1358,13 @@
 
                     <div class="section-title">
                         <h2>Contact</h2>
-                        <p>Vous pouvez nous joindre directement ou nous laisses un message directement/p>
+                        <p>Vous pouvez nous joindre directement ou nous laisses un message directement?</p>
+                        <p id="numero">6 999 1 999 0</p>
+                        <p id="numero">6 908 0 225 4</p>
+
+                        <a id="whatsapp"> <span class="bi bi-whatsapp green-color"
+                                (click)="openNewTab1('http://wa.me/+237699919990')" href="#contact"> WhatsApp
+                            </span></a>
                     </div>
 
                     <div class="row">
@@ -1415,23 +1401,23 @@
                             <form action="forms/contact.php" [formGroup]="firstFormGroup" class="php-email-form">
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label for="name">Votre nom</label>
+                                        <label for="name">Votre nom *</label>
                                         <input type="text" name="name" class="form-control" [formControl]="nom"
                                             id="name" required>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="name">Votre adresse email</label>
+                                        <label for="name">Votre adresse email *</label>
                                         <input type="email" class="form-control" name="email" [formControl]="email"
                                             id="email" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Sujet</label>
+                                    <label for="name">Sujet *</label>
                                     <input type="text" class="form-control" name="subject" [formControl]="sujet"
                                         id="subject" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Message</label>
+                                    <label for="name">Message *</label>
                                     <textarea class="form-control" name="message" rows="10" [formControl]="message"
                                         required></textarea>
                                 </div>
@@ -1484,7 +1470,7 @@
 
                             <div class="col-lg-3 col-md-6 footer-links">
 
-                                <h4>Useful Links</h4>
+                                <h4>Liens utiles</h4>
                                 <ul>
                                     <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
                                     <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
@@ -1498,29 +1484,37 @@
                                 <h4>Nos Services</h4>
                                 <ul>
                                     <li><i class="bx bx-chevron-right"></i> <a
-                                            href="http://ekotech.cm/sms-marketing.html"> Bulk sms
-                                            et API </a></li>
+                                            (click)="openNewTab1('http://ekotech.cm/sms-marketing.html')"
+                                            href="#footer-top"> Bulk
+                                            sms et
+                                            API </a></li>
                                     <li><i class="bx bx-chevron-right"></i> <a
-                                            href="http://ekotech.cm/eko-data-base.html">Base des
+                                            (click)="openNewTab1('http://ekotech.cm/eko-data-base.html')"
+                                            href="#footer-top">Base des
                                             Conctacts</a></li>
                                     <li><i class="bx bx-chevron-right"></i> <a
-                                            href="https://ekomarkethub.com/shop/">E-commerce</a>
+                                            (click)="('https://ekomarkethub.com/shop/')"
+                                            href="#footer-top">E-commerce</a>
                                     </li>
                                     <li><i class="bx bx-chevron-right"></i> <a
-                                            href="https://africaventurelab.com/">Consulting</a>
+                                            (click)="('https://africaventurelab.com/')"
+                                            href="#footer-top">Consulting</a>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div class="col-lg-3 col-md-6 footer-links">
+                            <div class="col-lg-3 col-md-6 footer-links" id="reseaux">
                                 <h4>Nos Reseau sociaux</h4>
                                 <h4>Nos differents reseaux sociaux</h4>
                                 <div class="social-links mt-3">
-                                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                    <a (click)="openNewTab1('https://twitter.com/AfrikVentureLab?t=cqdygQmAWQjljNCazLU1gQ&s=09')"
+                                        href="#reseaux" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                    <a (click)="openNewTab1('https://www.facebook.com/africaventurelab/')"
+                                        href="#reseaux" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                    <a (click)="openNewTab1('https://fr.linkedin.com/company/africa-venture-lab')"
+                                        href="#reseaux" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                    <!-- <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a> -->
+                                    <!--  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
                                 </div>
                             </div>
 
@@ -1537,7 +1531,7 @@
                         <!-- You can delete the links only if you purchased the pro version. -->
                         <!-- Licensing information: https://bootstrapmade.com/license/ -->
                         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-                        &copy; Mydoc 2021
+                        &copy; Mydoc 2022
                     </div>
                 </div>
 
