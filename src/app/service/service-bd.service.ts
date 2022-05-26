@@ -60,6 +60,7 @@ export class ServiceBdService {
       })
     });
   }
+
   getDemandeByIdAnd_Statut(idDemandeur: string, statut: string) {
     return new Promise((resolve, reject) => {
       this.httpClient.get(Constante.BASE_URL + 'demande/get_by_id_statut/' + idDemandeur + '/' + statut).toPromise().then((data: any) => {
@@ -69,6 +70,7 @@ export class ServiceBdService {
       })
     });
   }
+
   /**
     * Disable user
     * @param user 
@@ -84,6 +86,7 @@ export class ServiceBdService {
       })
     });
   }
+
   //EDITER DE LA DEMANDE DANS LA BD
   editAllDemande(demande: demande, demandeId: string) {
     let body = new FormData();

@@ -24,7 +24,7 @@
                     <a href="#FAQ">
                         <button mat-menu-item>FAQ</button>
                     </a>
-                    <a href="#support">
+                    <a href="#contact">
 
                         <button mat-menu-item>Support</button>
                     </a>
@@ -49,19 +49,7 @@
 
                 </mat-menu>
 
-                <!--  <button mat-button [matMenuTriggerFor]="beforeMenu">Ca</button>
-                <mat-menu #beforeMenu="matMenu" xPosition="before">
-                    <a href="#contact">
-                        <button mat-menu-item>Experience</button>
-                    </a>
-                    <a href="#">
-                        <button mat-menu-item>Article recents</button>
 
-                    </a>
-                    <a href="#">
-                        <button mat-menu-item>Categories</button>
-                    </a>
-                </mat-menu> -->
                 <a *ngIf="testbutonC"><button class="getstarted scrollto skin5" [routerLink]="['/','loading']">
                         <b> Se
                             Connecter</b>
@@ -74,8 +62,7 @@
             </div>
         </mat-toolbar-row>
     </mat-toolbar>
-    <!--   </div>
-    </header> -->
+
     <mat-sidenav-container fxFlexFill>
         <mat-sidenav #sidenav>
             <mat-nav-list>
@@ -121,23 +108,7 @@
                 </a>
 
 
-                <!--  <a href="#" mat-list-item>
-                    <mat-icon>library_books</mat-icon>
-                    <button (click)="sidenav.toggle()" mat-button [matMenuTriggerFor]="beforeMenu">Blog</button>
-                    <mat-menu #beforeMenu="matMenu" xPosition="before">
-                        <a (click)="sidenav.toggle()" href="#contact">
-                            <button mat-menu-item>Experience</button>
-                        </a>
-                        <a (click)="sidenav.toggle()" href="#">
-                            <button mat-menu-item>Article recents</button>
 
-                        </a>
-                        <a (click)="sidenav.toggle()" href="#">
-                            <button mat-menu-item>Categories</button>
-                        </a>
-                    </mat-menu>
-
-                </a> -->
                 <a *ngIf="testbutonD"><button class="getstarted scrollto skin5" (click)="logOut()"> <b>
                             Se Deconnecter</b>
                     </button></a>
@@ -223,7 +194,12 @@
                                 des documents administratifs à partir du Cameroun pour les Camerounais y compris la
                                 Diaspora !
                             </p>
-                            <a href="#organisation" class="btn-learn-more">Condition générale d'utilisation</a>
+
+                            <a href="#condition" class="btn-learn-more">Condition générale d'utilisation</a><br>
+                            <p></p>
+                            <p>Avec Mydoc.cm téléchargez gratuitement tous les formulaires
+                                Administratif disponible au Cameroun. N'hésites pas à nous écrire à
+                                Hello @mydoc.cm au cas où vous ne trouverez pas le formulaire que vous recherchez.</p>
                         </div>
                     </div>
 
@@ -240,11 +216,13 @@
                     </div>
 
                     <div class="row content">
-                        <div class="col-lg-12">
-                            <p>
-                                MyDoc.cm a pour mission de mettre à la disposition des Camerounais leurs
-                                documents administratifs et officiels de manière Simple, Rapide et Sécurisé.
-                            </p>
+                        <div class="col-lg-12 test">
+                            <h4>
+                                <p> <b> <i> MyDoc.cm a pour mission de mettre à la disposition des Camerounais leurs
+                                            documents administratifs et officiels de manière Simple, Rapide et
+                                            Sécurisé.</i></b>
+                                </p>
+                            </h4>
                         </div>
 
                     </div>
@@ -257,7 +235,7 @@
 
                     <div class="row">
                         <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-                            <img src="assets/landing/img/skills.png" class="img-fluid" alt="">
+                            <img src="assets/landing/img/document_off.gif" class="img-fluid" alt="">
                         </div>
                         <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
                             <h2>Taux de demande des documents part type sur notre plateforme</h2>
@@ -313,15 +291,20 @@
 
                     <div class="section-title">
                         <h2>Services</h2>
-                        <p>Nous avons diverses activités entre autres:</p>
-                        <p>Facilitation d'obtention de vos documents dans toutes les villes du Cameroun;</p>
-                        <p>Solution de communication via les bulks SMS, API et la base de données de votre cible idéal;
-                        </p>
-                        <p>Etude de conception relative à la création de vidéos d’entreprises;</p>
-                        <p>Création de vidéos institutionnelles</p>
-                        <p>Vente des noms de domaines et Hébergement</p>
-                        <p>Agence Conseil en Communication</p>
-                        <p>Agence Conseil en Services de Communication Eletctroniques</p>
+                        <p> <b>Nous avons diverses activités entre autres:</b> </p>
+                        <i>
+                            <b>
+                                <p>Facilitation d'obtention de vos documents dans toutes les villes du Cameroun;</p>
+                                <p>Solution de communication via les bulks SMS, API et la base de données de votre cible
+                                    idéal;
+                                </p>
+                                <p>Etude de conception relative à la création de vidéos d’entreprises;</p>
+                                <p>Création de vidéos institutionnelles;</p>
+                                <p>Vente des noms de domaines et Hébergement;</p>
+                                <p>Agence Conseil en Communication;</p>
+                                <p>Agence Conseil en Services de Communication Eletctroniques</p>
+                            </b>
+                        </i>
 
 
 
@@ -333,7 +316,7 @@
                         <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
                             data-aos-delay="100">
                             <div class="icon-box">
-                                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                                <div class="icon"><i class="bi bi-tools"></i></div>
                                 <h4><a (click)="openNewTab1('https://ekotech.cm/')" href="#services">Ekotech.cm</a></h4>
                                 <p>EKOTECH fournit des solutions qui aident les entreprises
                                     à atteindre leurs clients de la manière la plus efficace possible.</p>
@@ -343,32 +326,36 @@
                         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
                             data-aos-delay="200">
                             <div class="icon-box">
-                                <div class="icon"><i class="bx bx-file"></i></div>
+                                <div class="icon"><i class="bi bi-lightbulb-fill"></i></div>
                                 <h4><a (click)="openNewTab1('https://Africaventurelab.com')"
-                                        href="#services">Africaventurelab.com</a>
+                                        href="#services">Africaventuregroup.com</a>
                                 </h4>
                                 <p>Africa Venture Lab est une agence innovante qui a pour mission de renforcer
-                                    l'entrepreneur africain</p>
+                                    l'entrepreneur africain.</p>
                             </div>
                         </div>
 
                         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
                             data-aos-delay="300">
                             <div class="icon-box">
-                                <div class="icon"><i class="bx bx-tachometer"></i></div>
+                                <div class="icon"><i class="bi bi-chat-right"></i></div>
                                 <h4><a (click)="openNewTab1('https://Cible.ekotech.cm')"
                                         href="#services">Cible.ekotech.cm </a></h4>
-                                <p>plateforme d'envoi des bulks SMS</p>
+                                <p>Plateforme innovante de push SMS Enrichi multilangue et
+                                    multicanal avec analyse et feedback en temps réel.</p>
                             </div>
                         </div>
 
                         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
                             data-aos-delay="400">
                             <div class="icon-box">
-                                <div class="icon"><i class="bx bx-layer"></i></div>
+
+                                <div class="icon"><i class="bi bi-cart-check-fill"></i></div>
                                 <h4><a (click)="openNewTab1('https://ekomarkethub.com')"
                                         href="#services">ekomarkethub.com</a></h4>
-                                <p>Eko Market Hub est le centre commercial en ligne le plus ambitieux du Cameroun</p>
+                                <p>La Mission d'EKO MARKET HUB est de travailler pour améliorer la vie
+                                    de ses clients. Nous nous efforçons de
+                                    faire une grande contribution dans notre communauté.</p>
                             </div>
                         </div>
 
@@ -383,11 +370,17 @@
 
                     <div class="row">
                         <div class="col-lg-9 text-center text-lg-start">
-                            <h3>Connectez-vous dès aujourd’hui </h3>
-                            <p> Connectez-vous sur notre plateforme et bénéficiez de…</p>
+                            <h1> <b> Connectez-vous dès aujourd’hui </b></h1>
+                            <h2>
+                                <p> <b> <i> Connectez-vous sur notre plateforme et bénéficiez d'un service personalise,
+                                            rapide et
+                                            professionnel !</i></b></p>
+                            </h2>
                         </div>
                         <div class="col-lg-3 cta-btn-container text-center">
-                            <a class="cta-btn align-middle" href="#contact">Connectez-vous dès aujourd’hui </a>
+                            <a *ngIf="testbutonC" class="cta-btn align-middle"
+                                [routerLink]="['/','loading']">Connectez-vous dès aujourd’hui </a>
+
                         </div>
                     </div>
 
@@ -408,8 +401,8 @@
                         data-aos-delay="100">
                         <li data-filter="*" class="filter-active">tous les documents</li>
                         <li data-filter=".filter-app">Les Actes</li>
-                        <li data-filter=".filter-card">Les Diploment</li>
-                        <li data-filter=".filter-web">divers</li>
+                        <li data-filter=".filter-card">Les Diplômes</li>
+                        <li data-filter=".filter-web">Autres documments</li>
                     </ul>
 
                     <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
@@ -450,13 +443,13 @@
                         </div>
 
                         <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/copie acte de décès.jfif"
+                            <div class="portfolio-img"><img src="assets/landing/img/portfolio/copie acte de deces.jfif"
                                     class="img-fluid" alt="copie acte de décès">
                             </div>
                             <div class="portfolio-info">
                                 <h4> Acte de décès</h4>
                                 <p> Death certificate</p>
-                                <a (click)="openNewTab1('assets/landing/img/portfolio/copie acte de décès.jfif')"
+                                <a (click)="openNewTab1('assets/landing/img/portfolio/copie acte de deces.jfif')"
                                     href="#portfolio" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox preview-link" title="Acte de décès"><i
                                         class="bx bx-plus"></i></a>
@@ -582,7 +575,7 @@
                         </strong>
                         <p>Bienvenue sur le site Internet www.mydoc.cm qui est édité par AFRICA VENTURE GROUP SARL,
                             inscrite au
-                            Registre du Commerce et de Crédit Mobilier du Cameroun sous le n° xxxxxxxxxxxxxxxxxxxx,
+                            Registre du Commerce et de Crédit Mobilier du Cameroun sous le n° RC/DLA/16/3870,
                             pour le
                             compte de ce service virtuel MyDoc.cm
                             Adresse de courrier électronique : infos@mydoc.cm
@@ -595,7 +588,7 @@
                         <div *ngIf="afficheCon" class="accordion-list">
 
                             <p>
-                                N° Contribuable : xxxxxxxxxxxxxxxxxxxxxxxx
+                                N° Contribuable : M111 612 583 293 P
                                 Coordonnées téléphoniques -(n° de téléphone pour les réclamations, des informations
                                 sur les livraisons en cours) : +237 690 802 254.
                                 L’utilisation du présent site ainsi que du réseau, des équipements et des logiciels
@@ -1120,7 +1113,8 @@
 
                         <p> Si dans la liste des questions-réponses ci-dessous, vous ne trouvez pas satisfaction
                             n'hésitez
-                            pas à nous laisser un mail ou nous joindre directement aux 69 991 999 0 </p>
+                            pas à nous laisser un mail a hello@mydoc.cm ou nous joindre directement au +237 6 90 80 22
+                            54 </p>
                     </div>
 
                     <div class="faq-list">
@@ -1380,19 +1374,20 @@
                                 <div class="email">
                                     <i class="bi bi-envelope"></i>
                                     <h4>Email:</h4>
-                                    <p>hello@ekotech.cm</p>
+                                    <p>hello@mydoc.cm</p>
                                 </div>
 
                                 <div class="phone">
                                     <i class="bi bi-phone"></i>
                                     <h4>Call:</h4>
-                                    <p>+237 699 919 990</p>
+                                    <p>+237 6 90 80 22 54</p>
                                 </div>
 
-                                <iframe
-                                    src="https://www.google.com/maps/dir/4.0515862,9.699612/Africa+Venture+Group+%2F+Eko+Market+Hub,+573+Rue+Sylvani+%2F+Bernabe,+Opposite+Maison+Bois,+Akwa,+Douala+Cameroon,+BP7204,+Douala,+Cameroun/@4.0515111,9.6994689,19.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x106112f54fd9d215:0x1c6a6dce1ceafff9!2m2!1d9.699851!2d4.0515249"
-                                    frameborder="0" style="border:0; width: 100%; height: 290px;"
-                                    allowfullscreen></iframe>
+
+                                <img src="assets/images/gallery/document_localiser.PNG" class="img-fluid animated"
+                                    alt="Localisation"
+                                    (click)="openNewTab1('https://www.google.com/maps/place/EKO+MARKET+HUB+SA/@4.0517398,9.699165,18.37z/data=!4m5!3m4!1s0x1061138de8ca1bfb:0x34b2f423a9b00de0!8m2!3d4.0515707!4d9.6997668')"
+                                    href="#contact">
                             </div>
 
                         </div>
@@ -1440,20 +1435,7 @@
             <!-- ======= Footer ======= -->
             <footer id="support " class="coleure">
 
-                <div class="footer-newsletter">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6">
-                                <h4 id="support">Vous inscrire</h4>
-                                <h4>pour avoire vos documents a traver nous vous devez creer un compte </h4>
-                                <form action="" method="post">
-                                    <input type="email" name="email" placeholder="email"><input type="submit"
-                                        value="Subscribe">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="footer-top">
                     <div class="container">
@@ -1462,7 +1444,6 @@
                             <div class="col-lg-3 col-md-6 footer-contact">
                                 <h3>Mydoc Cameroun</h3>
                                 <h4>
-                                    <br><br>
                                     <strong>Phone:</strong> +237 6784 241 25<br>
                                     <strong>Email:</strong>hello@mydoc.cm<br>
                                 </h4>
@@ -1473,10 +1454,9 @@
                                 <h4>Liens utiles</h4>
                                 <ul>
                                     <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                                    <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                                    <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                                    <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                                    <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                                    <li><i class="bx bx-chevron-right"></i> <a href="#contact">Conctact</a></li>
+                                    <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+
                                 </ul>
                             </div>
 
@@ -1513,8 +1493,6 @@
                                         href="#reseaux" class="facebook"><i class="bx bxl-facebook"></i></a>
                                     <a (click)="openNewTab1('https://fr.linkedin.com/company/africa-venture-lab')"
                                         href="#reseaux" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                    <!-- <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a> -->
-                                    <!--  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
                                 </div>
                             </div>
 
@@ -1527,10 +1505,7 @@
                         Mes documents <strong><span>Au</span></strong> Cameroun &copy;
                     </div>
                     <div class="credits">
-                        <!-- All the links in the footer should remain intact. -->
-                        <!-- You can delete the links only if you purchased the pro version. -->
-                        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+
                         &copy; Mydoc 2022
                     </div>
                 </div>

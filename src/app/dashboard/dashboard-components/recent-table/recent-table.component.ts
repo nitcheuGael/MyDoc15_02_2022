@@ -124,6 +124,7 @@ export class RecentTableComponent implements OnInit {
 
       })
       .catch((error) => {
+
       })
       ;
   }
@@ -223,7 +224,7 @@ export class RecentTableComponent implements OnInit {
   sendMail() {
     var email = Constante.emailNotification;
     var objt = "Demande";
-    var message = "La demande numero " + ' ' + this.idDemande + ' de ' + this.nom + '  ' + this.Prenom + ' a ete soumise ';
+    var message = "La demande numero " + ' ' + this.idDemande + ' de ' + this.nom + '  ' + this.Prenom + ' a ete soumise '
     var entete = 'From: Mydoc@mydoc.cm'
     this.serviceMailSms.sendEmail(email, objt, message, entete).then((projet) => {
       console.log('Envoi du mail avec succes', projet)

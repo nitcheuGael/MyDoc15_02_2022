@@ -11,7 +11,8 @@ import firebase from 'firebase/app';
 import { MailService } from '../service/smsMail/mail.service';
 import { Constante } from '../entite/constante';
 import { DialogConfirmService } from '../service/dialog-confirm.service';
-import { ConfirmDialog1Component, ConfirmDialogModel } from '../Dialog/confirm-dialog1/confirm-dialog1.component';
+import { ServiceBdService } from '../service/service-bd.service';
+
 
 
 
@@ -32,6 +33,10 @@ export class ConnexionComponent implements OnInit {
   statutDom1 = false;
   statutDom2 = true;
   email1: any;
+  id: any;
+
+
+
 
   phoneNumber: any;
   reCaptchaVerifier!: any;
@@ -54,10 +59,11 @@ export class ConnexionComponent implements OnInit {
       public dialog: MatDialog,
       private ngZone: NgZone,
       public serviceMailSms: MailService,
-      private message_confirme: DialogConfirmService
+      private message_confirme: DialogConfirmService,
+      private serviceBd: ServiceBdService,
 
 
-    ) { }
+  ) { }
   //public user: User | undefined  https://remotestack.io/angular-firebase-authentication-example-tutorial/
 
 
@@ -93,25 +99,44 @@ export class ConnexionComponent implements OnInit {
   //CONTROLE DU CHAMP DE SAISI EMAIL
 
   getErrorMessage() {
-    if (this.email!.hasError('required')) {
+    if (this.email1!.hasError('required')) {
       return 'You must enter a value';
     }
 
     return this.email!.hasError('email') ? 'Not a valid email' : '';
   }
 
+  //VERRIFIER SI J'AI DEJA LE USE CONNECTER DANS MA BD
+  /* getIddeLaBD():void{
+    this.afAuth.currentUser.then((user) => {
+      this.id = user?.uid
+     this.serviceBd.getDemandeById(this.id)
+
+    })
+  } */
 
   //CONNEXION VIA COMPTE GOOGLE
   loginGoogle() {
     this.authService.googleLogin().then(() => {
       this.afAuth.currentUser.then((user) => {
+        this.id = user?.uid
         this.email1 = user?.email
+        this.serviceBd.getDemandeById(this.id).then((donne => {
+          console.log('la personne a deje un compte voici les donness : ' + donne)
+        })).catch(abscens => {
+          var email = Constante.emailNotification;
+          var objt = "Creation de Compte";
+          var message = "Nouveau compte creer via GoogleLogin email: " + this.email1;
+          var entete = 'From: Mydoc@mydoc.cm'
+          this.serviceMailSms.sendEmail(email, objt, message, entete)
+          console.log('la donnee de la connexion est de:  ' + this.email1 + '  iud    ' + this.id)
+          console.log('la premiere fois de se connecter :    ' + abscens)
+
+        })
+
+
       })
-      var email = Constante.emailNotification;
-      var objt = "Creation de Compte";
-      var message = "Nouveau compte creer via GoogleLogin email: " + this.email1;
-      var entete = 'From: Mydoc@mydoc.cm'
-      this.serviceMailSms.sendEmail(email, objt, message, entete)
+
 
     })
   }
@@ -136,6 +161,7 @@ export class ConnexionComponent implements OnInit {
   get nom() {
     return this.loginform.get('nom')
   }
+
   //CONNEXION VIA MOT DE PASSE
   connexion() {
     this.authService.login(this.email?.value, this.pasword?.value).then(() => {
@@ -149,6 +175,7 @@ export class ConnexionComponent implements OnInit {
     });
     // CREATION DE COMPTE VIA EMAIL MOT DE PASSE
   }
+
   creerCompte() {
     this.authService.SignUp(this.email?.value, this.pasword?.value).then(() => {
 
@@ -156,14 +183,15 @@ export class ConnexionComponent implements OnInit {
       var objt = "Creation de Compte";
       var message = "Nouveau compte Creer email:" + this.email;
       var entete = 'From: Mydoc@mydoc.cm'
-      /*  this.serviceMailSms.sendEmail(email, objt, message, entete).then((projet) => {
- 
-       }).catch(rejet => {
- 
-       }) */
+      this.serviceMailSms.sendEmail(email, objt, message, entete).then((projet) => {
+
+      }).catch(rejet => {
+
+      })
     }
     )
   }
+
 
   //ENVOI DU LIEN DE VERIFICATION
   emailLinkSend() {
@@ -191,6 +219,9 @@ export class ConnexionComponent implements OnInit {
 
     })
   }
+
+
+
   //CONNEXION VIA NUMERO DE TELEPHONE
   getOTP() {
     this.reCaptchaVerifier = new firebase.auth.RecaptchaVerifier(

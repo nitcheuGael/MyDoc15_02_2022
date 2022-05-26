@@ -364,6 +364,7 @@ export class Demande1Component implements OnInit {
 
 
             }).catch((erreur => {
+
             }))
             this.submitted = true
 
