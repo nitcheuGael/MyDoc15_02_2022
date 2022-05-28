@@ -46,3 +46,13 @@
 .test{
   color: rgb(0, 0, 0);
 }
+
+.tel{
+  padding: 10px;
+  background-color: rgb(34, 12, 158);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  margin : 15px 1px ;
+  
+}
